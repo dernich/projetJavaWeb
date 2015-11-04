@@ -2,24 +2,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
+    <f:view locale="#{internationalizationMB.locale}"/>
+    
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <title>Christmas E-Commerce</title>
     </h:head>
 
     <h:body>
-
+        <f:loadBundle basename="languages.lang" var="msg"/>
         <div id="top">
-            <ui:insert name="top">Site Web de Noël</ui:insert>
-        </div>
-        <div>
-            <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+            <h:form style="text-align: right; margin: 5px;">
+                <h:commandButton image="http://www.french-teaching.com/images/drapeaux/FR.png" action="#{internationalizationMB.setToFrench()}" style="margin-right: 5px;"/>
+                <h:commandButton image="http://img4.hostingpics.net/pics/842907drpen.png" action="#{internationalizationMB.setToEnglish()}"/>
+            </h:form>
+            <ui:insert name="top">#{msg.title}</ui:insert>
+            <div id="panier">
+                <h:link outcome="faces/panier.xhtml">
+                    <h:outputText id="textPanier" value="#{msg.basket}"></h:outputText>
+                    <h:graphicImage id="imagePanier" url="http://www.esf-labresse.com/public/images/pictos/p-panier@2x.png" width="30px" height="30px"></h:graphicImage>
+                </h:link>
             </div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
+                <li><h:link value="#{msg.category}"/></li>
+                <li><h:link value="#{msg.discount}"/></li>
+                <li><h:link value="#{msg.contact}"/></li>
+            </ul>
+        </div>
+        <div id="all_content">
+            <div id="left">
+                <ul>
+                    <li><h:link value="#{msg.tree}"/></li>
+                    <li><h:link value="#{msg.balls}"/></li>
+                    <li><h:link value="#{msg.tinsel}"/></li>
+                    <li><h:link value="#{msg.light}"/></li>
+                    <li><h:link value="#{msg.star}"/></li>
+                </ul>
+            </div>
+            
             <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>
             </div>

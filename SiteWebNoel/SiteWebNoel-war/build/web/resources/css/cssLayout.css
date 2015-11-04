@@ -1,17 +1,42 @@
-
 #top {
     position: relative;
     background-color: #036fab;
     color: white;
     padding: 5px;
+    margin: 0px 0px 0px 0px;
+}
+
+#panier {
+    text-align: right;
+    margin : 0px 20px 10px 0px;
+}
+
+#menu {
+    color: white;
+    font-size: 1.5em;
+    background-color: #c2dfef;
     margin: 0px 0px 10px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    display: inline;
+    margin-left:20px;
 }
 
 #bottom {
-    position: relative;
+    float: bottom;
     background-color: #c2dfef;
     padding: 5px;
     margin: 10px 0px 0px 0px;
+    text-align: center;
 }
 
 #left {
@@ -42,7 +67,7 @@
 
 .right_content {
     background-color: #dddddd;
-    padding: 5px;
+    padding: 0px;
     margin: 0px 170px 0px 170px;
 }
 
@@ -53,9 +78,5 @@
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: black;
   font-weight : bold;
-  text-decoration : underline;
 }
-
-
