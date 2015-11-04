@@ -41,13 +41,15 @@
         <div id="menu">
             <ul>
                 <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
-                <li><h:link value="#{msg.category}"/></li>
-                <li><h:link value="#{msg.discount}"/></li>
+                <li><h:link value="#{msg.tree}"/></li>
+                <li><h:link value="#{msg.balls}"/></li>
+                <li><h:link value="#{msg.light}"/></li>
+                <li><h:link value="#{msg.star}"/></li>
                 <li><h:link value="#{msg.contact}"/></li>
             </ul>
         </div>
         
-        <div>
+        <!--<div>
             <div id="left">
                 <ul>
                     <ui:insert name="left"></ui:insert>
@@ -59,11 +61,11 @@
                 </ul>
             </div>
             
-            <div id="content" class="left_content">
+            
+        </div> !-->
+        <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>
-            </div>
         </div>
-        
         <div id="bottom">
             <ui:insert name="bottom">&copy; Copyright : Degraux - Dernivoix</ui:insert>
         </div>
