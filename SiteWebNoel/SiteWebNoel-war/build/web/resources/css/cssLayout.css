@@ -6,6 +6,11 @@
     margin: 0px 0px 0px 0px;
 }
 
+#title {
+    font-size: 2em;
+    float: left;
+    margin-left: 30px;
+}
 #panier {
     text-align: right;
     margin : 0px 20px 10px 0px;
@@ -13,7 +18,7 @@
 
 #menu {
     color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
     background-color: #c2dfef;
     margin: 0px 0px 10px 0px;
     padding-top: 5px;
@@ -79,4 +84,24 @@
 
 #top a:link:hover, #top a:visited:hover  {
   font-weight : bold;
+}
+
+#langues {
+    text-align: right; 
+    margin: 5px 5px 15px 0px;
+}
+
+#connection {
+    text-align: right;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+#formConnection {
+    text-align: center; 
+    border: 1px solid #ABABAB; 
+    width: 300px; 
+    margin:auto; 
+    padding: 15px;
+    margin-bottom: 30px;
 }

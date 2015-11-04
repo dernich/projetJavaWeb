@@ -17,11 +17,19 @@
     <h:body>
         <f:loadBundle basename="languages.lang" var="msg"/>
         <div id="top">
-            <h:form style="text-align: right; margin: 5px;">
+            <ui:insert name="top"></ui:insert>
+            
+            <h:form id="langues">
                 <h:commandButton image="http://www.french-teaching.com/images/drapeaux/FR.png" action="#{internationalizationMB.setToFrench()}" style="margin-right: 5px;"/>
                 <h:commandButton image="http://img4.hostingpics.net/pics/842907drpen.png" action="#{internationalizationMB.setToEnglish()}"/>
             </h:form>
-            <ui:insert name="top">#{msg.title}</ui:insert>
+            
+            <h:outputText id="title" value="#{msg.title}"/>
+            
+            <div id="connection">
+                <h:button value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
+            </div>
+            
             <div id="panier">
                 <h:link outcome="faces/panier.xhtml">
                     <h:outputText id="textPanier" value="#{msg.basket}"></h:outputText>
@@ -29,6 +37,7 @@
                 </h:link>
             </div>
         </div>
+        
         <div id="menu">
             <ul>
                 <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
@@ -37,9 +46,11 @@
                 <li><h:link value="#{msg.contact}"/></li>
             </ul>
         </div>
-        <div id="all_content">
+        
+        <div>
             <div id="left">
                 <ul>
+                    <ui:insert name="left"></ui:insert>
                     <li><h:link value="#{msg.tree}"/></li>
                     <li><h:link value="#{msg.balls}"/></li>
                     <li><h:link value="#{msg.tinsel}"/></li>
@@ -52,6 +63,7 @@
                 <ui:insert name="content">Content</ui:insert>
             </div>
         </div>
+        
         <div id="bottom">
             <ui:insert name="bottom">&copy; Copyright : Degraux - Dernivoix</ui:insert>
         </div>

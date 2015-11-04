@@ -8,9 +8,11 @@ body {
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
-    font-size: 1.4em;
+    text-align: center;
+    font-size: 1.7em;
     font-weight: bold;
     margin: 0px;
+    margin-bottom: 20px;
     padding: 0px;
     color: #045491;
 }
