@@ -12,7 +12,31 @@
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
                 <h1>#{msg.signUp}</h1>
-                
+                <div id="formSignUp">
+                    <h:form>
+                        <h:outputLabel value="#{msg.name}" for="name"></h:outputLabel>
+                        <h:inputText id="name" value="" 
+                                     required="true" requiredMessage="Name is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.firstName}" for="firstName"></h:outputLabel>
+                        <h:inputText id="firstName" value="" 
+                                     required="true" requiredMessage="Firstname is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.address}" for="address"></h:outputLabel>
+                        <h:inputText id="address" value="" 
+                                     required="true" requiredMessage="Address is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.number}" for="number"></h:outputLabel>
+                        <h:inputText id="number" value="" maxlength="3" 
+                                     required="true" requiredMessage="number is required">
+                        </h:inputText>
+                        <br/><br/>
+                        <h:commandButton value="#{msg.createAccount}"></h:commandButton>
+                    </h:form>
+                </div>
             </ui:define>
 
         </ui:composition>

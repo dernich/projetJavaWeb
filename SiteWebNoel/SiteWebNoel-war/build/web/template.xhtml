@@ -24,10 +24,11 @@
                 <h:commandButton image="http://img4.hostingpics.net/pics/842907drpen.png" action="#{internationalizationMB.setToEnglish()}"/>
             </h:form>
             
-            <h:outputText id="title" value="#{msg.title}"/>
+            <h:graphicImage url="http://www.icone-gif.com/gif/noel/rennes/rennes-traineaux-035.gif" style="float:left; height:100px; margin-top:-30px;"/>
+            <h:outputText id="title" value="Christmas Things"/>
             
             <div id="connection">
-                <h:button value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
+                <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
             </div>
             
             <div id="panier">
@@ -41,31 +42,34 @@
         <div id="menu">
             <ul>
                 <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
-                <li><h:link value="#{msg.tree}"/></li>
-                <li><h:link value="#{msg.balls}"/></li>
-                <li><h:link value="#{msg.light}"/></li>
-                <li><h:link value="#{msg.star}"/></li>
+                <li><h:link value="#{msg.category}"/></li>
+                <li><h:link value="#{msg.discount}"/></li>
                 <li><h:link value="#{msg.contact}"/></li>
             </ul>
         </div>
         
-        <!--<div>
+        <div>
             <div id="left">
                 <ul>
-                    <ui:insert name="left"></ui:insert>
-                    <li><h:link value="#{msg.tree}"/></li>
-                    <li><h:link value="#{msg.balls}"/></li>
-                    <li><h:link value="#{msg.tinsel}"/></li>
-                    <li><h:link value="#{msg.light}"/></li>
-                    <li><h:link value="#{msg.star}"/></li>
+                    <li><h:link value="#{msg.home}"/></li>
+                    <li><h:outputText value="#{msg.category}"/></li>
+                    <ul>
+                        <ui:insert name="left"></ui:insert>
+                        <li><h:link value="#{msg.tree}"/></li>
+                        <li><h:link value="#{msg.balls}"/></li>
+                        <li><h:link value="#{msg.tinsel}"/></li>
+                        <li><h:link value="#{msg.light}"/></li>
+                        <li><h:link value="#{msg.star}"/></li>
+                    </ul>
+                    <li><h:link value="#{msg.contact}"/></li>
                 </ul>
             </div>
             
-            
-        </div> !-->
-        <div id="content" class="left_content">
+            <div id="content" class="left_content">
                 <ui:insert name="content">Content</ui:insert>
+            </div>
         </div>
+        
         <div id="bottom">
             <ui:insert name="bottom">&copy; Copyright : Degraux - Dernivoix</ui:insert>
         </div>

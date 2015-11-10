@@ -8,6 +8,7 @@
 
 #title {
     font-size: 2em;
+    font-weight: bold;
     float: left;
     margin-left: 30px;
 }
@@ -49,6 +50,8 @@
     background-color: #ece3a5;
     padding: 5px;
     width: 150px;
+    color: #045491;
+    font-weight : bold;
 }
 
 #right {
@@ -98,6 +101,21 @@
 }
 
 #formConnection {
+    text-align: center; 
+    border: 1px solid #ABABAB; 
+    width: 300px; 
+    margin:auto; 
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+#buttonConnectionTop {
+    background-color: #ffffff;
+    color: #036fab;
+    font-weight: bold;
+}
+
+#formSignUp {
     text-align: center; 
     border: 1px solid #ABABAB; 
     width: 300px; 
