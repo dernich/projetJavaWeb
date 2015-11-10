@@ -20,11 +20,11 @@
             <ui:insert name="top"></ui:insert>
             
             <h:form id="langues">
-                <h:commandButton image="http://www.french-teaching.com/images/drapeaux/FR.png" action="#{internationalizationMB.setToFrench()}" style="margin-right: 5px;"/>
-                <h:commandButton image="http://img4.hostingpics.net/pics/842907drpen.png" action="#{internationalizationMB.setToEnglish()}"/>
+                <h:commandButton image="./images/fr.png" action="#{internationalizationMB.setToFrench()}" style="margin-right: 5px;"/>
+                <h:commandButton image="./images/en.png" action="#{internationalizationMB.setToEnglish()}"/>
             </h:form>
             
-            <h:graphicImage url="http://www.icone-gif.com/gif/noel/rennes/rennes-traineaux-035.gif" style="float:left; height:100px; margin-top:-30px;"/>
+            <h:graphicImage id="imageHeader" url="./images/rennes.gif"/>
             <h:outputText id="title" value="Christmas Things"/>
             
             <div id="connection">
@@ -34,34 +34,30 @@
             <div id="panier">
                 <h:link outcome="faces/panier.xhtml">
                     <h:outputText id="textPanier" value="#{msg.basket}"></h:outputText>
-                    <h:graphicImage id="imagePanier" url="http://www.esf-labresse.com/public/images/pictos/p-panier@2x.png" width="30px" height="30px"></h:graphicImage>
+                    <h:graphicImage id="imagePanier" url="./images/panier.png" width="30px" height="30px"></h:graphicImage>
                 </h:link>
             </div>
         </div>
         
-        <div id="menu">
-            <ul>
-                <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
-                <li><h:link value="#{msg.category}"/></li>
-                <li><h:link value="#{msg.discount}"/></li>
-                <li><h:link value="#{msg.contact}"/></li>
-            </ul>
+        <div id="discount">
+            <h:outputText value="Réduction de 10 % sur votre panier à partir de 50€ d'achat !"/>
         </div>
         
         <div>
             <div id="left">
+                <ui:insert name="left"></ui:insert>
+                <h2><h:outputText value="#{msg.menu}"></h:outputText></h2>
                 <ul>
-                    <li><h:link value="#{msg.home}"/></li>
+                    <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
                     <li><h:outputText value="#{msg.category}"/></li>
                     <ul>
-                        <ui:insert name="left"></ui:insert>
                         <li><h:link value="#{msg.tree}"/></li>
                         <li><h:link value="#{msg.balls}"/></li>
                         <li><h:link value="#{msg.tinsel}"/></li>
                         <li><h:link value="#{msg.light}"/></li>
                         <li><h:link value="#{msg.star}"/></li>
                     </ul>
-                    <li><h:link value="#{msg.contact}"/></li>
+                    <li><h:link value="#{msg.contact}" outcome="faces/contact.xhtml"/></li>
                 </ul>
             </div>
             

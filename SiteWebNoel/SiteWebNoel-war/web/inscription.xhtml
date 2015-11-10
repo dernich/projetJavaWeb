@@ -11,7 +11,7 @@
             
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
-                <h1>#{msg.signUp}</h1>
+                <h1><h:outputText value="#{msg.signUp}"/></h1>
                 <div id="formSignUp">
                     <h:form>
                         <h:outputLabel value="#{msg.name}" for="name"></h:outputLabel>
@@ -28,11 +28,48 @@
                         <h:inputText id="address" value="" 
                                      required="true" requiredMessage="Address is required">
                         </h:inputText>
-                        <br/>
                         <h:outputLabel value="#{msg.number}" for="number"></h:outputLabel>
                         <h:inputText id="number" value="" maxlength="3" 
                                      required="true" requiredMessage="number is required">
                         </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.postalCode}" for="postalCode"></h:outputLabel>
+                        <h:inputText id="postalCode" value="" 
+                                     required="true" requiredMessage="PostalCode is required">
+                        </h:inputText>
+                        <h:outputLabel value="#{msg.city}" for="city"></h:outputLabel>
+                        <h:inputText id="city" value="" 
+                                     required="true" requiredMessage="City is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.country}"></h:outputLabel>
+                        <h:selectOneMenu id="selectCountry">
+                            <f:selectItem itemValue="1" itemLabel="Belgique"/>
+                            <f:selectItem itemValue="2" itemLabel="Luxembourg"/>
+                            <f:selectItem itemValue="3" itemLabel="Pays-Bas"/>
+                            <f:selectItem itemValue="4" itemLabel="France"/>
+                            <f:selectItem itemValue="5" itemLabel="Royaume-Uni"/>
+                        </h:selectOneMenu>
+                        <br/>
+                        <h:outputLabel value="#{msg.phone}" for="phone"></h:outputLabel>
+                        <h:inputText id="phone" value="" 
+                                     required="true" requiredMessage="Phone is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.mail}" for="mail"></h:outputLabel>
+                        <h:inputText id="mail" value="" 
+                                     required="true" requiredMessage="Mail is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel value="#{msg.password}" for="psasword"></h:outputLabel>
+                        <h:inputSecret id="password" value=""
+                                       required="true" requiredMessage="Password is required">
+                        </h:inputSecret>
+                        <br/>
+                        <h:outputLabel value="#{msg.confirmPassword}" for="confirmPassword"></h:outputLabel>
+                        <h:inputSecret id="confirmPassword" value=""    
+                                       required="true" requiredMessage="Confirm password is required">
+                        </h:inputSecret>
                         <br/><br/>
                         <h:commandButton value="#{msg.createAccount}"></h:commandButton>
                     </h:form>

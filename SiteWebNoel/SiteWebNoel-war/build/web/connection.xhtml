@@ -13,18 +13,22 @@
         <ui:composition template="./template.xhtml">
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
-                <h1>#{msg.titleConnection}</h1>
+                <h1><h:outputText value="#{msg.titleConnection}"/></h1>
                 <div id="formConnection">
                     <h:form>
                         <h:outputLabel value="#{msg.login}" for="login"></h:outputLabel>
                         <h:inputText id="login" value="" 
                                      required="true" requiredMessage="Login is required">
                         </h:inputText>
+                        <br/>
+                        <h:message class="errorMessage" for="login" />
                         <br/><br/>
                         <h:outputLabel value="#{msg.password}" for="password"></h:outputLabel>
                         <h:inputSecret id="password" value=""
                                        required="true" requiredMessage="Password is required">
                         </h:inputSecret>
+                        <br/>
+                        <h:message class="errorMessage" for="password" />
                         <br/><br/>
                         <h:commandButton value="#{msg.connection}"></h:commandButton>
                     </h:form>

@@ -17,6 +17,17 @@ h1 {
     color: #045491;
 }
 
+h2 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #045491;
+}
+
 a:link, a:visited {
   color: #045491;
   font-weight : bold;

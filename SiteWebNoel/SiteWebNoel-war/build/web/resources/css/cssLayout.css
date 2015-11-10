@@ -12,29 +12,27 @@
     float: left;
     margin-left: 30px;
 }
+
+#imageHeader {
+    float:left; 
+    height:100px; 
+    margin-top:-30px;
+}
+
 #panier {
     text-align: right;
     margin : 0px 20px 10px 0px;
 }
 
-#menu {
-    color: white;
+#discount {
+    color: #036fab;
     font-size: 1.2em;
+    font-weight: bold;
     background-color: #c2dfef;
     margin: 0px 0px 10px 0px;
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;
-}
-
-#menu ul {
-    margin: 0;
-    padding: 0;
-}
-
-#menu li {
-    display: inline;
-    margin-left:20px;
 }
 
 #bottom {
@@ -43,6 +41,7 @@
     padding: 5px;
     margin: 10px 0px 0px 0px;
     text-align: center;
+    color:#036fab;
 }
 
 #left {
@@ -118,8 +117,16 @@
 #formSignUp {
     text-align: center; 
     border: 1px solid #ABABAB; 
-    width: 300px; 
+    width: 600px; 
     margin:auto; 
     padding: 15px;
     margin-bottom: 30px;
+}
+
+#contact {
+    text-align: center;
+}
+
+.errorMessage {
+    color: red;
 }
