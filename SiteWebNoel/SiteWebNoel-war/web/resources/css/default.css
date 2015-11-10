@@ -14,30 +14,30 @@ h1 {
     margin: 0px;
     margin-bottom: 20px;
     padding: 0px;
-    color: #045491;
+    color: #F94F40;
 }
 
 h2 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
+    border-bottom: 1px solid #FFFFFF; 
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
-    color: #045491;
+    color: #FFFFFF;
 }
 
 a:link, a:visited {
-  color: #045491;
+  color: #FFFFFF;
   font-weight : bold;
   text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: white;
+  color: #FFFFFF;
   font-weight : bold;
-  background:#045491;
+  background: #952F26;
 }
 
 ul {

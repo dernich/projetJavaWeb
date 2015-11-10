@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
-
+        
         <ui:composition template="./template.xhtml">
 
             <ui:define name="content">
@@ -14,7 +14,7 @@
                 <div id="contact">
                     <h:outputText value="Contactez nous à l'adresse électronique suivante : "/>
                     <br/>
-                    <h:link value="webmaster@monsite.be"/>
+                    <h:link id="linkMail" value="webmaster@monsite.be"/>
                     <br/><br/>
                 </div>
             </ui:define>

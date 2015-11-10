@@ -1,7 +1,7 @@
 #top {
     position: relative;
-    background-color: #036fab;
-    color: white;
+    background-color: #F94F40;
+    color: #D8CA7F;
     padding: 5px;
     margin: 0px 0px 0px 0px;
 }
@@ -25,10 +25,10 @@
 }
 
 #discount {
-    color: #036fab;
+    color: #952F26;
     font-size: 1.2em;
     font-weight: bold;
-    background-color: #c2dfef;
+    background-color: #D8CA7F;
     margin: 0px 0px 10px 0px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -37,49 +37,49 @@
 
 #bottom {
     float: bottom;
-    background-color: #c2dfef;
+    background-color: #FB958C;
     padding: 5px;
     margin: 10px 0px 0px 0px;
     text-align: center;
-    color:#036fab;
+    color: #952F26;
 }
 
 #left {
     float: left;
-    background-color: #ece3a5;
+    background-color: #F94F40;
     padding: 5px;
     width: 150px;
-    color: #045491;
+    color: #FFFFFF;
     font-weight : bold;
 }
 
 #right {
     float: right;
-    background-color: #ece3a5;
+    background-color: #ECE3A5;
     padding: 5px;
     width: 150px;
 }
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #EEEEEE;
     padding: 5px;
 }
 
 .left_content {
-    background-color: #dddddd;
+    background-color: #EEEEEE;
     padding: 5px;
     margin-left: 170px;
 }
 
 .right_content {
-    background-color: #dddddd;
+    background-color: #EEEEEE;
     padding: 0px;
     margin: 0px 170px 0px 170px;
 }
 
 #top a:link, #top a:visited {
-  color: white;
+  color: #FFFFFF;
   font-weight : bold;
   text-decoration: none;
 }
@@ -109,9 +109,19 @@
 }
 
 #buttonConnectionTop {
-    background-color: #ffffff;
-    color: #036fab;
+    background-color: #FFFFFF;
+    color: #952F26;
     font-weight: bold;
+}
+
+#linkMail {
+    color: #000000;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#linkMail:hover {
+    background-color: #EEEEEE;
 }
 
 #formSignUp {
@@ -127,6 +137,16 @@
     text-align: center;
 }
 
+#newCustomer {
+    color: #000000;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#newCustomer:hover {
+    background-color: #EEEEEE;
+}
+
 .errorMessage {
-    color: red;
+    color: #F94F40;
 }
