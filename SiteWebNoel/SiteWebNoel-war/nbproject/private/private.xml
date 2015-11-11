@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/contact.xhtml</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/template.xhtml</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/connection.xhtml</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/languages/lang_en.properties</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/inscription.xhtml</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/resources/css/cssLayout.css</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/resources/css/default.css</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/languages/lang_fr.properties</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/languages/lang.properties</file>
         </group>
     </open-files>
 </project-private>

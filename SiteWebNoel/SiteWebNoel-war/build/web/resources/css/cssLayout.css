@@ -123,11 +123,10 @@
     background-color: #EEEEEE;
 }
 
-#formSignUp {
-    text-align: center; 
+#formSignUp { 
     border: 1px solid #ABABAB; 
-    width: 600px; 
-    margin:auto; 
+    width: auto; 
+    margin: 0 20% 0 20%; 
     padding: 15px;
     margin-bottom: 30px;
 }
@@ -154,6 +153,7 @@
     vertical-align: top;
     margin: auto;
     margin-left: 13px;
+    margin-bottom: 20px;
     padding: 10px;
     text-align: center;
 }
@@ -170,4 +170,12 @@
 
 .errorMessage {
     color: #F94F40;
+}
+
+.label {
+    display: block;
+    width: 45%;
+    float: left;
+    padding-right: 1%;
+    text-align: right;
 }
