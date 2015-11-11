@@ -36,7 +36,6 @@
 }
 
 #bottom {
-    float: bottom;
     background-color: #FB958C;
     padding: 5px;
     margin: 10px 0px 0px 0px;
@@ -147,31 +146,28 @@
     background-color: #EEEEEE;
 }
 
-.errorMessage {
-    color: #F94F40;
-}
-
 #divArticle{
-    border: solid 1px;
-    width:500px;
-    height:350px;
-    position:relative;
-    float:left;
-}
-
-#divCategorie{
+    border: 1px solid #952F26;
+    height: 320px;
+    width: 250px;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+    margin-left: 13px;
+    padding: 10px;
+    text-align: center;
 }
 
 .nomArticle{
-    font-size: large;
+    font-size: 1.4em;
     text-align: center;
-    color:orangered;
+    color: #F94F40;
 }
 
 .prixArticle{
     font-weight:bold;
 }
 
-.boutonPanier{
-    margin-left:150px; 
+.errorMessage {
+    color: #F94F40;
 }

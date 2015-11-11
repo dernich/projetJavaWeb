@@ -17,11 +17,17 @@
                 <div id="divCategorie">
                     <c:forEach items="#{categoriesMB.getListeArticle()}" var="article">
                         <div  id="divArticle">
-                            <br><h:outputText id="nomArticle" class="nomArticle" value="#{article.nom}"/></br>
-                            <br><h:graphicImage id="article" url="#{article.urlImage}"/></br>
-                            <br><h:outputText id="description" value="#{article.description}"/></br>
-                            <h:outputText id="prixArticle" class="prixArticle" value ="#{article.prix} €"/>
-                            <h:commandButton value="Ajouter Panier" class="boutonPanier" style="margin-right: 5px;"/>
+                            <h:form>
+                                <h:outputText class="nomArticle" value="#{article.nom}"/>
+                                <br/>
+                                <h:graphicImage id="article" url="#{article.urlImage}"/>
+                                <br/><br/>
+                                <h:outputText id="description" value="#{article.description}"/>
+                                <br/>
+                                <h:outputText class="prixArticle" value ="#{article.prix} €"/>
+                                <br/><br/>
+                                <h:commandButton id="boutonPanier" value="Ajouter Panier"/>
+                            </h:form>
                         </div>
                     </c:forEach>    
                 </div>
