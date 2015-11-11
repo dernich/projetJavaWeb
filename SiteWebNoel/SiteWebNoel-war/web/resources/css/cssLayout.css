@@ -147,7 +147,7 @@
 
 #divArticle{
     border: 1px solid #952F26;
-    height: 320px;
+    height: auto;
     width: 250px;
     display: inline-block;
     vertical-align: top;

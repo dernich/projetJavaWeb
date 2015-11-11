@@ -6,12 +6,14 @@ public class testArticle {
     private String description;
     private String urlImage;
     private Double prix;
+    private Integer quantiteStock;
 
-    public testArticle(String nom, String description, String urlImage, Double prix) {
+    public testArticle(String nom, String description, String urlImage, Double prix, Integer quantiteStock) {
         this.nom = nom;
         this.description = description;
         this.urlImage = urlImage;
         this.prix = prix;
+        this.quantiteStock = quantiteStock;
     }
 
     public String getNom() {
@@ -45,6 +47,12 @@ public class testArticle {
     public void setPrix(Double prix) {
         this.prix = prix;
     }
-    
-    
+
+    public Integer getQuantiteStock() {
+        return quantiteStock;
+    }
+
+    public void setQuantiteStock(Integer quantiteStock) {
+        this.quantiteStock = quantiteStock;
+    }
 }
