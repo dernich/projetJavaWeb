@@ -179,3 +179,15 @@
     padding-right: 1%;
     text-align: right;
 }
+
+#divCategory{
+    margin-bottom:50px;
+    margin-left:13px;
+}
+
+#titleCategory{
+    font-size:large;
+    font-weight:bold;
+    color: #F94F40;
+}
+

@@ -51,11 +51,11 @@
                     <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
                     <li><h:outputText value="#{msg.category}"/></li>
                     <ul>
-                        <li><h:link value="#{msg.tree}" outcome="faces/categories.xhtml"/></li>
-                        <li><h:link value="#{msg.balls}"/></li>
-                        <li><h:link value="#{msg.tinsel}"/></li>
-                        <li><h:link value="#{msg.light}"/></li>
-                        <li><h:link value="#{msg.star}"/></li>
+                        <li><h:link value="#{msg.tree}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tree}"/></h:link></li>
+                        <li><h:link value="#{msg.balls}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.balls}"/></h:link></li>
+                        <li><h:link value="#{msg.tinsel}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tinsel}"/></h:link></li>
+                        <li><h:link value="#{msg.light}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.light}"/></h:link></li>
+                        <li><h:link value="#{msg.star}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.star}"/></h:link></li>
                     </ul>
                     <li><h:link value="#{msg.contact}" outcome="faces/contact.xhtml"/></li>
                 </ul>

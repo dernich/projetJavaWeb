@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    
+    <body>
+
+        <ui:composition template="./template.xhtml">
+            
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <h1><h:outputText value="#{msg.signUp}"/></h1>
+                <div id="formSignUp">
+                    <h:form>
+                        <h:outputLabel class="label" value="#{msg.name}" for="name"></h:outputLabel>
+                        <h:inputText id="name" value="" 
+                                     required="true" requiredMessage="Name is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.firstName}" for="firstName"></h:outputLabel>
+                        <h:inputText id="firstName" value="" 
+                                     required="true" requiredMessage="Firstname is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.address}" for="address"></h:outputLabel>
+                        <h:inputText id="address" value="" 
+                                     required="true" requiredMessage="Address is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.number}" for="number"></h:outputLabel>
+                        <h:inputText id="number" value="" maxlength="3" 
+                                     required="true" requiredMessage="number is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.postalCode}" for="postalCode"></h:outputLabel>
+                        <h:inputText id="postalCode" value="" 
+                                     required="true" requiredMessage="PostalCode is required">
+                        </h:inputText><br/>
+                        <h:outputLabel class="label" value="#{msg.city}" for="city"></h:outputLabel>
+                        <h:inputText id="city" value="" 
+                                     required="true" requiredMessage="City is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.country}"></h:outputLabel>
+                        <h:selectOneMenu id="selectCountry">
+                            <f:selectItem itemValue="1" itemLabel="Belgique"/>
+                            <f:selectItem itemValue="2" itemLabel="Luxembourg"/>
+                            <f:selectItem itemValue="3" itemLabel="Pays-Bas"/>
+                            <f:selectItem itemValue="4" itemLabel="France"/>
+                            <f:selectItem itemValue="5" itemLabel="Royaume-Uni"/>
+                        </h:selectOneMenu>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.phone}" for="phone"></h:outputLabel>
+                        <h:inputText id="phone" value="" 
+                                     required="true" requiredMessage="Phone is required">
+                        </h:inputText>
+                        <br/><br/>
+                        <h:outputLabel class="label" value="#{msg.mail}" for="mail"></h:outputLabel>
+                        <h:inputText id="mail" value="" 
+                                     required="true" requiredMessage="Mail is required">
+                        </h:inputText>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.password}" for="psasword"></h:outputLabel>
+                        <h:inputSecret id="password" value=""
+                                       required="true" requiredMessage="Password is required">
+                        </h:inputSecret>
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.confirmPassword}" for="confirmPassword"></h:outputLabel>
+                        <h:inputSecret id="confirmPassword" value=""    
+                                       required="true" requiredMessage="Confirm password is required">
+                        </h:inputSecret>
+                        <br/><br/>
+                        <h:commandButton value="#{msg.createAccount}" style="margin-left: 46%;"></h:commandButton>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

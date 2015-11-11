@@ -14,7 +14,10 @@
         <ui:composition template="./template.xhtml">
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
-                <div id="divCategorie">
+                <div>
+                    <div id="divCategory">
+                        <h:outputText id="titleCategory" value="#{msg.category} #{param.categorie}"/>
+                    </div>
                     <c:forEach items="#{categoriesMB.getListeArticle()}" var="article">
                         <div  id="divArticle">
                             <h:form>
