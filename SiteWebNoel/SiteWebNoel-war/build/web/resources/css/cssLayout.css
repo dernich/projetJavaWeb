@@ -150,3 +150,28 @@
 .errorMessage {
     color: #F94F40;
 }
+
+#divArticle{
+    border: solid 1px;
+    width:500px;
+    height:350px;
+    position:relative;
+    float:left;
+}
+
+#divCategorie{
+}
+
+.nomArticle{
+    font-size: large;
+    text-align: center;
+    color:orangered;
+}
+
+.prixArticle{
+    font-weight:bold;
+}
+
+.boutonPanier{
+    margin-left:150px; 
+}

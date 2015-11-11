@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/contact.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/template.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/connection.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/inscription.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/resources/css/cssLayout.css</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/siteWebNoel/siteWebNoel-war/web/resources/css/default.css</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/categories.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/connection.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/InternationalizationMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/categoriesMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/testArticle.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/template.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/contact.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/index.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/inscription.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/resources/css/cssLayout.css</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/Java_web/SiteWebNoel/SiteWebNoel-war/web/resources/css/default.css</file>
         </group>
     </open-files>
 </project-private>
