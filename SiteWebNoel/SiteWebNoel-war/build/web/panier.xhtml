@@ -13,23 +13,43 @@
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
                 <h1><h:outputText value="#{msg.basket}"/></h1>
-                <c:forEach items="#{basket.getListePanier()}" var="article">
-                    <div id="divLignePanier">
-                        <h:form>
-                            <h:outputText class="nomArticle" value="#{article.nom}"/>
-                            <br/>
-                            <h:outputText id="prix" value="#{article.prix}"/>
-                            <br/>
-                            <h:outputText id="quantite" value="#{msg.quantity}"/>
-                            <p:spinner min="0" size="2" value=""/>
-                            <br/>
-                            <h:outputText value="Prix Total : "/>
-                        </h:form>
-                    </div>
-                </c:forEach>
+                
+                <h:dataTable id="basket" value="#{basket.listePanier}" var="line" rowClasses="odd,even">
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value=""/>
+                        </f:facet>
+                        <h:graphicImage url="#{line.urlImage}" height="70px" width="70px"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.nameArticle}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.nom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.unityPrice}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.prix} €"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.quantityOrder}"/>
+                        </f:facet>
+                        <p:spinner min="0" size="2" value="1"/>
+                        <h:commandButton onclick="#{basket.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.totalPrice}"/>
+                        </f:facet>
+                        <h:outputText value="XX.XX €"/>
+                    </h:column>
+                </h:dataTable>
                 <br/>
                 <div id="totalCommande">
-                    <h:outputText value="A payer : 100.50 €"/><br/>
+                    <h:outputText value="#{msg.totalOrder} #{basket.total} €"/><br/>
                     <h:outputText value="#{msg.discount} : "/>
                 </div>
             </ui:define>

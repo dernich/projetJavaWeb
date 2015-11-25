@@ -1,5 +1,7 @@
 package managedBean;
 
+import java.text.DecimalFormat;
+
 public class testArticle {
     
     private String nom;
@@ -41,6 +43,8 @@ public class testArticle {
     }
 
     public Double getPrix() {
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.format(prix);
         return prix;
     }
 

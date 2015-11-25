@@ -191,8 +191,17 @@
     color: #F94F40;
 }
 
-#divLignePanier {
-    
+#basket {
+    width: 100%;
+    text-align: center;
+}
+
+#basket tr.odd {
+    background-color: #bdbdbd;
+}
+
+#basket th {
+    background-color: #FB958C;
 }
 
 #totalCommande {
