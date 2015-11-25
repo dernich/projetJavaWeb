@@ -20,32 +20,39 @@
                     <h:form>
                         <h:outputLabel class="label" value="#{msg.name}" for="name"></h:outputLabel>
                         <h:inputText id="name" value="" 
-                                     required="true" requiredMessage="Name is required">
+                                     required="true" requiredMessage="#{msg.msgErrorName}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="name" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.firstName}" for="firstName"></h:outputLabel>
                         <h:inputText id="firstName" value="" 
-                                     required="true" requiredMessage="Firstname is required">
+                                     required="true" requiredMessage="#{msg.msgErrorFirstName}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="firstName" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.address}" for="address"></h:outputLabel>
                         <h:inputText id="address" value="" 
-                                     required="true" requiredMessage="Address is required">
+                                     required="true" requiredMessage="#{msg.msgErrorAddress}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="address" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.number}" for="number"></h:outputLabel>
                         <h:inputText id="number" value="" maxlength="3" 
-                                     required="true" requiredMessage="number is required">
+                                     required="true" requiredMessage="#{msg.msgErrorNumber}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="number" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.postalCode}" for="postalCode"></h:outputLabel>
                         <h:inputText id="postalCode" value="" 
-                                     required="true" requiredMessage="PostalCode is required">
-                        </h:inputText><br/>
+                                     required="true" requiredMessage="#{msg.msgErrorPostalCode}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="postalCode" />
+                        <br/>
                         <h:outputLabel class="label" value="#{msg.city}" for="city"></h:outputLabel>
                         <h:inputText id="city" value="" 
-                                     required="true" requiredMessage="City is required">
+                                     required="true" requiredMessage="#{msg.msgErrorCity}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="city" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.country}"></h:outputLabel>
                         <h:selectOneMenu id="selectCountry">
@@ -58,23 +65,27 @@
                         <br/>
                         <h:outputLabel class="label" value="#{msg.phone}" for="phone"></h:outputLabel>
                         <h:inputText id="phone" value="" 
-                                     required="true" requiredMessage="Phone is required">
+                                     required="true" requiredMessage="#{msg.msgErrorPhone}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="phone" />
                         <br/><br/>
                         <h:outputLabel class="label" value="#{msg.mail}" for="mail"></h:outputLabel>
                         <h:inputText id="mail" value="" 
-                                     required="true" requiredMessage="Mail is required">
+                                     required="true" requiredMessage="#{msg.msgErrorMail}">
                         </h:inputText>
+                        <h:message class="errorMessage" for="mail" />
                         <br/>
-                        <h:outputLabel class="label" value="#{msg.password}" for="psasword"></h:outputLabel>
+                        <h:outputLabel class="label" value="#{msg.password}" for="password"></h:outputLabel>
                         <h:inputSecret id="password" value=""
-                                       required="true" requiredMessage="Password is required">
+                                       required="true" requiredMessage="#{msg.msgErrorPassword}">
                         </h:inputSecret>
+                        <h:message class="errorMessage" for="password" />
                         <br/>
                         <h:outputLabel class="label" value="#{msg.confirmPassword}" for="confirmPassword"></h:outputLabel>
                         <h:inputSecret id="confirmPassword" value=""    
-                                       required="true" requiredMessage="Confirm password is required">
+                                       required="true" requiredMessage="#{msg.msgErrorConfirmPassword}">
                         </h:inputSecret>
+                        <h:message class="errorMessage" for="confirmPassword" />
                         <br/><br/>
                         <h:commandButton value="#{msg.createAccount}" style="margin-left: 46%;"></h:commandButton>
                     </h:form>

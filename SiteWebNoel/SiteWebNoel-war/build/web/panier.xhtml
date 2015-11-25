@@ -3,14 +3,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
         <ui:composition template="./template.xhtml">
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
-                <h1>#{msg.basket}</h1>
+                <h1><h:outputText value="#{msg.basket}"/></h1>
+                <c:forEach items="#{basket.getListePanier()}" var="article">
+                    <div id="divLignePanier">
+                        <h:form>
+                            <h:outputText class="nomArticle" value="#{article.nom}"/>
+                            <br/>
+                            <h:outputText id="prix" value="#{article.prix}"/>
+                            <br/>
+                            <h:outputText id="quantite" value="#{msg.quantity}"/>
+                            <p:spinner min="0" size="2" value=""/>
+                            <br/>
+                            <h:outputText value="Prix Total : "/>
+                        </h:form>
+                    </div>
+                </c:forEach>
+                <br/>
+                <div id="totalCommande">
+                    <h:outputText value="A payer : 100.50 €"/><br/>
+                    <h:outputText value="#{msg.discount} : "/>
+                </div>
             </ui:define>
 
         </ui:composition>

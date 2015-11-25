@@ -18,14 +18,14 @@
                     <h:form>
                         <h:outputLabel value="#{msg.login}" for="login"></h:outputLabel>
                         <h:inputText id="login" value="" 
-                                     required="true" requiredMessage="Login is required">
+                                     required="true" requiredMessage="#{msg.msgErrorLogin}">
                         </h:inputText>
                         <br/>
                         <h:message class="errorMessage" for="login" />
                         <br/><br/>
                         <h:outputLabel value="#{msg.password}" for="password"></h:outputLabel>
                         <h:inputSecret id="password" value=""
-                                       required="true" requiredMessage="Password is required">
+                                       required="true" requiredMessage="#{msg.msgErrorPassword}">
                         </h:inputSecret>
                         <br/>
                         <h:message class="errorMessage" for="password" />
@@ -33,7 +33,7 @@
                         <h:commandButton value="#{msg.connection}"></h:commandButton>
                     </h:form>
                     <br/>
-                    <h:link id="newCustomer" value="#{msg.newCustomer}" outcome="faces/inscription"/>
+                    <h:link id="newCustomer" value="#{msg.newCustomer}" outcome="faces/inscription.xhtml"/>
                 </div>
             </ui:define>
 

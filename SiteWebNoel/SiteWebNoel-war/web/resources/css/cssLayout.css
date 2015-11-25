@@ -191,3 +191,16 @@
     color: #F94F40;
 }
 
+#divLignePanier {
+    
+}
+
+#totalCommande {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-top: 1px solid #AFAFAF; 
+    text-align: right;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding-right: 30px;
+    color: #F94F40;
+}

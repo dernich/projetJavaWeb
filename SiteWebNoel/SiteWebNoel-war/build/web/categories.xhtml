@@ -18,34 +18,36 @@
                     <div id="divCategory">
                         <h1><h:outputText id="titleCategory" value="#{msg.category} #{param.categorie}"/></h1>
                     </div>
-                    <c:forEach items="#{categoriesMB.getListeArticle()}" var="article">
-                        <div  id="divArticle">
-                            <h:form>
-                                <h:outputText class="nomArticle" value="#{article.nom}"/>
-                                <br/>
-                                <h:graphicImage id="article" url="#{article.urlImage}"/>
-                                <br/><br/>
-                                <h:outputText id="description" value="#{article.description}"/>
-                                <br/>
-                                <h:outputText class="prixArticle" value="#{article.prix} €"/>
-                                <br/><br/>
-                                <c:set var="stock" scope="session" value="#{article.quantiteStock}"/>
-                                <c:choose>
-                                    <c:when test="${stock > 5}">
-                                        <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: green; background-color: green;"/>
-                                    </c:when>
-                                    <c:when test="${stock le 5 and stock > 0}">
-                                        <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: orange; background-color: orange;"/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: red; background-color: red;"/>
-                                    </c:otherwise>
-                                </c:choose>
-                                <br/><br/>
-                                <h:commandButton id="boutonPanier" value="#{msg.addBasket}"/>
-                            </h:form>
-                        </div>
-                    </c:forEach>    
+                    <div style="text-align: center;">
+                        <c:forEach items="#{categoriesMB.getListeArticle()}" var="article">
+                            <div  id="divArticle">
+                                <h:form>
+                                    <h:outputText class="nomArticle" value="#{article.nom}"/>
+                                    <br/>
+                                    <h:graphicImage id="article" url="#{article.urlImage}"/>
+                                    <br/><br/>
+                                    <h:outputText id="description" value="#{article.description}"/>
+                                    <br/>
+                                    <h:outputText class="prixArticle" value="#{article.prix} €"/>
+                                    <br/><br/>
+                                    <c:set var="stock" scope="session" value="#{article.quantiteStock}"/>
+                                    <c:choose>
+                                        <c:when test="${stock > 5}">
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: green; background-color: green;"/>
+                                        </c:when>
+                                        <c:when test="${stock le 5 and stock > 0}">
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: orange; background-color: orange;"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: red; background-color: red;"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <br/><br/>
+                                    <h:commandButton id="boutonPanier" value="#{msg.addBasket}" action="#{basket.addArticleList(article)}"/>
+                                </h:form>
+                            </div>
+                        </c:forEach>  
+                    </div>
                 </div>
                 
             </ui:define>
