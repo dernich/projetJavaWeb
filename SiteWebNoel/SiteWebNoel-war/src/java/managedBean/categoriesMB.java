@@ -22,7 +22,7 @@ public class categoriesMB
         article.add(new testArticle("Boule de noël", "Boule rose", "https://www.veronneau.com/components/com_mijoshop/opencart/image/cache/catalog/acomba/BOULE-DE-Noel-EN-PLASTIQUE-ROSE-4-XN0156PK.-200x200.jpg", 3.20, 10));
         article.add(new testArticle("Boule de noël original", "Boule pingouin", "http://static.eprofeel.com/salons/c/2/199n/153265_1.jpg", 4.50, 20));
         article.add(new testArticle("Boule de noël lumineuse", "Boule lumineuse", "http://cdn.monechelle.fr/suspension-lumineuse-led-boule-blanc-chaud-T-264871_1.jpg", 3.40, 20));
-        article.add(new testArticle("Boule de noël", "Boule verte", "https://www.veronneau.com/components/com_mijoshop/opencart/image/cache/catalog/acomba/BOULE-METALIQUE-INTERIEURE-VERTE-6-MTB8724V-200x200.jpg", 3.20, 2));
+        article.add(new testArticle("Boule de noël", "Boule verte", "https://www.veronneau.com/components/com_mijoshop/opencart/image/cache/catalog/acomba/BOULE-METALIQUE-INTERIEURE-VERTE-6-MTB8724V-200x200.jpg", 3.20, 1));
     }
     
     public void addArticleList(testArticle a) {

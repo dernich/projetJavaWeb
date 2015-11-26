@@ -5,8 +5,8 @@
         <group>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/panier.xhtml</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/Basket.java</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/index.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/categories.xhtml</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/categoriesMB.java</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/testArticle.java</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/resources/css/cssLayout.css</file>
             <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/template.xhtml</file>
         </group>
