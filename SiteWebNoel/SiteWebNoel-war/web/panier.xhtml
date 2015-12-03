@@ -37,7 +37,7 @@
                         <f:facet name="header" class="headerBasket">
                             <h:outputText value="#{msg.quantityOrder}"/>
                         </f:facet>
-                        <p:spinner min="0" size="2" value="1"/>
+                        <p:spinner min="0" size="2" value="#{line.quantiteCommand}"/>
                         <h:commandButton action="#{basket.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
                     </h:column>
                     <h:column>
@@ -50,7 +50,7 @@
                 <br/>
                 <div id="totalCommande">
                     <h:outputText value="#{msg.totalOrder} #{basket.total} €"/><br/>
-                    <h:outputText value="#{msg.discount} : "/>
+                    <h:outputText value="#{msg.discount} : #{basket.promotion} %"/>
                 </div>
             </ui:define>
 

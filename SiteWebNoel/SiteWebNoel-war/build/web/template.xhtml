@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <f:view locale="#{internationalizationMB.locale}"/>
     
@@ -27,6 +28,7 @@
             <h:graphicImage id="imageHeader" url="./images/rennes.gif"/>
             <h:outputText id="title" value="Christmas Things"/>
             
+            <c:set var="user" scope="session" value="#{userConnection.user}"/>
             <div id="connection">
                 <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
             </div>
@@ -41,7 +43,7 @@
         </div>
         
         <div id="discount">
-            <h:outputText value="Réduction de 10 % sur votre panier à partir de 50€ d'achat et 20 % à partir de 100€ !"/>
+            <h:outputText value="#{msg.discountDescription}"/>
         </div>
         
         <div>

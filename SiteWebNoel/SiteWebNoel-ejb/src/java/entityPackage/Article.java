@@ -2,7 +2,9 @@ package entityPackage;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,10 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "ARTICLE")
@@ -42,12 +46,16 @@ public class Article implements Serializable {
     private short quantitestock;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 200)
     @Column(name = "URLIMAGE")
     private String urlimage;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticle")
+    private Collection<Lignecommande> lignecommandeCollection;
     @JoinColumn(name = "ID_CATEGORIE", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private Categorie idCategorie;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idArticle")
+    private Collection<Traductionarticle> traductionarticleCollection;
 
     public Article() {
     }
@@ -95,12 +103,30 @@ public class Article implements Serializable {
         this.urlimage = urlimage;
     }
 
+    @XmlTransient
+    public Collection<Lignecommande> getLignecommandeCollection() {
+        return lignecommandeCollection;
+    }
+
+    public void setLignecommandeCollection(Collection<Lignecommande> lignecommandeCollection) {
+        this.lignecommandeCollection = lignecommandeCollection;
+    }
+
     public Categorie getIdCategorie() {
         return idCategorie;
     }
 
     public void setIdCategorie(Categorie idCategorie) {
         this.idCategorie = idCategorie;
+    }
+
+    @XmlTransient
+    public Collection<Traductionarticle> getTraductionarticleCollection() {
+        return traductionarticleCollection;
+    }
+
+    public void setTraductionarticleCollection(Collection<Traductionarticle> traductionarticleCollection) {
+        this.traductionarticleCollection = traductionarticleCollection;
     }
 
     @Override

@@ -29,6 +29,8 @@ public class Categorie implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCategorie")
+    private Collection<Traductioncategorie> traductioncategorieCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCategorie")
     private Collection<Article> articleCollection;
 
     public Categorie() {
@@ -44,6 +46,15 @@ public class Categorie implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @XmlTransient
+    public Collection<Traductioncategorie> getTraductioncategorieCollection() {
+        return traductioncategorieCollection;
+    }
+
+    public void setTraductioncategorieCollection(Collection<Traductioncategorie> traductioncategorieCollection) {
+        this.traductioncategorieCollection = traductioncategorieCollection;
     }
 
     @XmlTransient
