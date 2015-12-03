@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -12,27 +13,45 @@
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
                 <h1><h:outputText value="#{msg.basket}"/></h1>
-                <c:forEach items="#{basket.getListePanier()}" var="article">
-                        <div  id="divLignePanier">
-                            <h:form>
-                                <h:outputText class="nomArticle" value="#{article.nom}"/>
-                                <br/>
-                                <h:outputText id="prix" value="#{article.prix}"/>
-                                <br/>
-                                <h:outputText id="quantite" value="Quantité : "/>
-                                <h:selectOneMenu id="selectQuantity">
-                                    <f:selectItem itemValue="1" itemLabel="1"/>
-                                    <f:selectItem itemValue="1" itemLabel="1"/>
-                                    <f:selectItem itemValue="2" itemLabel="2"/>
-                                    <f:selectItem itemValue="3" itemLabel="3"/>
-                                    <f:selectItem itemValue="4" itemLabel="4"/>
-                                    <f:selectItem itemValue="5" itemLabel="5"/>
-                                </h:selectOneMenu>
-                                <br/>
-                                <h:outputText value="Prix Total : "/>
-                            </h:form>
-                        </div>
-                    </c:forEach>
+                
+                <h:dataTable id="basket" value="#{basket.listePanier}" var="line" rowClasses="odd,even">
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value=""/>
+                        </f:facet>
+                        <h:graphicImage url="#{line.urlImage}" height="70px" width="70px"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.nameArticle}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.nom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.unityPrice}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.prix} €"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.quantityOrder}"/>
+                        </f:facet>
+                        <p:spinner min="0" size="2" value="#{line.quantiteCommand}"/>
+                        <h:commandButton action="#{basket.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.totalPrice}"/>
+                        </f:facet>
+                        <h:outputText value="XX.XX €"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                <div id="totalCommande">
+                    <h:outputText value="#{msg.totalOrder} #{basket.total} €"/><br/>
+                    <h:outputText value="#{msg.discount} : #{basket.promotion} %"/>
+                </div>
             </ui:define>
 
         </ui:composition>

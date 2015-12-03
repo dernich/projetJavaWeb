@@ -24,7 +24,7 @@
                                 <h:form>
                                     <h:outputText class="nomArticle" value="#{article.nom}"/>
                                     <br/>
-                                    <h:graphicImage id="article" url="#{article.urlImage}"/>
+                                    <h:graphicImage id="article" url="#{article.urlImage}" width="200px" height="200px"/>
                                     <br/><br/>
                                     <h:outputText id="description" value="#{article.description}"/>
                                     <br/>
@@ -43,7 +43,9 @@
                                         </c:otherwise>
                                     </c:choose>
                                     <br/><br/>
-                                    <h:commandButton id="boutonPanier" value="#{msg.addBasket}" action="#{basket.addArticleList(article)}"/>
+                                    <h:commandButton value="details" action="#{articleManager.outcome}">
+                                        <f:setPropertyActionListener target="#{articleManager.articleToManage}" value="#{article}"/>
+                                    </h:commandButton>    
                                 </h:form>
                             </div>
                         </c:forEach>  
