@@ -8,7 +8,7 @@ import model.Article;
 @RequestScoped
 public class articleManager {
     
-    public Article articleToManage;
+    private Article articleToManage;
     
     public String outcome(){
         return "details";

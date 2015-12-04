@@ -213,3 +213,33 @@
     padding-right: 30px;
     color: #F94F40;
 }
+
+#descriptionContent{
+    font-size: 1.3em;
+}
+
+#descriptionArticle {
+    display:inline-block; 
+    margin: 20px; 
+    margin-top: 5px; 
+    vertical-align: top;
+    width: 250px;
+}
+
+#imageDescription {
+    margin-left: 50px; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    display:inline-block; 
+    vertical-align: top;
+}
+
+#boutonPanier {
+    display: block; 
+    margin:auto;
+}
+
+#price {
+    font-weight: bold;
+    color: #F94F40;
+}

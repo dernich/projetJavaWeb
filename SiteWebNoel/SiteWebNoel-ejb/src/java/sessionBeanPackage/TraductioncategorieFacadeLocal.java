@@ -20,5 +20,7 @@ public interface TraductioncategorieFacadeLocal {
     List<Traductioncategorie> findRange(int[] range);
 
     int count();
+
+    List<model.Categorie> getCategoryByLanguage(int langue);
     
 }
