@@ -2,7 +2,6 @@ package model;
 
 public class Utilisateur {
     
-    private Integer id;
     private String nom;
     private String prenom;
     private String email;
@@ -12,17 +11,9 @@ public class Utilisateur {
     private int numeromaison;
     private int codepostal;
     private String localite;
-    private int idPays;
+    private Pays idPays;
 
     public Utilisateur() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNom() {
@@ -97,11 +88,11 @@ public class Utilisateur {
         this.localite = localite;
     }
 
-    public int getIdPays() {
+    public Pays getIdPays() {
         return idPays;
     }
 
-    public void setIdPays(int idPays) {
+    public void setIdPays(Pays idPays) {
         this.idPays = idPays;
     }
 }

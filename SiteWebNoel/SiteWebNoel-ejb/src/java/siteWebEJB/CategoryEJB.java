@@ -1,17 +1,14 @@
 package siteWebEJB;
 
-import java.util.ArrayList;
 import javax.ejb.Stateless;
-import model.Categorie;
-import sessionBeanPackage.TraductioncategorieFacade;
 
 @Stateless
 public class CategoryEJB implements CategoryEJBLocal {
 
-    private TraductioncategorieFacade categorieFacade;
+    //private TraductioncategorieFacade categorieFacade;
     
-    @Override
-    public ArrayList<Categorie> getCategoryByLanguage(int langue) {
-        return categorieFacade.getCategoryByLanguage(langue);
-    }
+    /*@Override
+    public HashMap<Integer, Categorie> GetAllCategory(int langue) {
+        return categorieFacade.GetAllCategory(langue);
+    }*/
 }

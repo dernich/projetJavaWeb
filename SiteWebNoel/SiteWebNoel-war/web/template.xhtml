@@ -28,7 +28,7 @@
             <h:graphicImage id="imageHeader" url="./images/rennes.gif"/>
             <h:outputText id="title" value="Christmas Things"/>
             
-            <c:set var="user" scope="session" value="#{userConnection.user}"/>
+            <c:set var="user" scope="session" value="#{userMB.user}"/>
             <div id="connection">
                 <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
             </div>
@@ -54,11 +54,9 @@
                     <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
                     <li><h:outputText value="#{msg.category}"/></li>
                     <ul>
-                        <li><h:link value="#{msg.tree}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tree}"/></h:link></li>
-                        <li><h:link value="#{msg.balls}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.balls}"/></h:link></li>
-                        <li><h:link value="#{msg.tinsel}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tinsel}"/></h:link></li>
-                        <li><h:link value="#{msg.light}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.light}"/></h:link></li>
-                        <li><h:link value="#{msg.star}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.star}"/></h:link></li>
+                        <c:forEach items="#{categoriesMB.listCategory}" var="cat">
+                            <li><h:link value="#{cat}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tree}"/></h:link></li>
+                        </c:forEach>
                     </ul>
                     <li><h:link value="#{msg.contact}" outcome="faces/contact.xhtml"/></li>
                 </ul>

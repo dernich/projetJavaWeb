@@ -30,7 +30,7 @@
                         <br/>
                         <h:message class="errorMessage" for="password" />
                         <br/><br/>
-                        <h:commandButton value="#{msg.connection}" action="#{userConnection.UserConnection(login.value, password.value)}"></h:commandButton>
+                        <h:commandButton value="#{msg.connection}" action="#{userMB.UserConnection(login.value, password.value)}"></h:commandButton>
                     </h:form>
                     <br/>
                     <h:link id="newCustomer" value="#{msg.newCustomer}" outcome="faces/inscription.xhtml"/>

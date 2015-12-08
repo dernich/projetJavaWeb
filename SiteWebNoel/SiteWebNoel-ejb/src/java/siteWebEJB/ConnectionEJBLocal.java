@@ -8,6 +8,8 @@ public interface ConnectionEJBLocal {
 
     void AddUser(Utilisateur user);
 
+    model.Pays getPaysById(Integer id);
+            
     //Utilisateur UserConnection(String login);
     
 }

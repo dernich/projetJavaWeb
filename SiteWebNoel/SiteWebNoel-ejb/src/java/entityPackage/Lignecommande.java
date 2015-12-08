@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package entityPackage;
 
 import java.io.Serializable;
@@ -5,6 +10,8 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,6 +21,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author Antoine
+ */
 @Entity
 @Table(name = "LIGNECOMMANDE")
 @XmlRootElement
@@ -25,10 +36,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Lignecommande implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
-    private Short id;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "QUANTITECOMMANDE")
@@ -48,21 +59,21 @@ public class Lignecommande implements Serializable {
     public Lignecommande() {
     }
 
-    public Lignecommande(Short id) {
+    public Lignecommande(Integer id) {
         this.id = id;
     }
 
-    public Lignecommande(Short id, int quantitecommande, BigDecimal prixreel) {
+    public Lignecommande(Integer id, int quantitecommande, BigDecimal prixreel) {
         this.id = id;
         this.quantitecommande = quantitecommande;
         this.prixreel = prixreel;
     }
 
-    public Short getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

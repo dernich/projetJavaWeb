@@ -1,18 +1,30 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Categorie {
     
-    private String libelle;
+    private ArrayList<String> listLibelleFR;
+    private ArrayList<String> listLibelleEN;
 
-    public Categorie(String libelle) {
-        this.libelle = libelle;
+    public Categorie() {
+        listLibelleFR = new ArrayList<>();
+        listLibelleEN = new ArrayList<>();
     }
 
-    public String getLibelle() {
-        return libelle;
+    public ArrayList<String> getListLibelleFR() {
+        return listLibelleFR;
     }
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
+    public ArrayList<String> getListLibelleEN() {
+        return listLibelleEN;
+    }
+    
+    public void addListLibelleFR(String lib) {
+        listLibelleFR.add(lib);
+    }
+    
+    public void addListLibelleEN(String lib) {
+        listLibelleEN.add(lib);
     }
 }

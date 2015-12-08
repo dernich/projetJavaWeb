@@ -1,11 +1,11 @@
 package siteWebEJB;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import javax.ejb.Local;
 import model.Categorie;
 
 @Local
 public interface CategoryEJBLocal {
     
-    ArrayList<Categorie> getCategoryByLanguage(int langue);
+    //HashMap<Integer, Categorie> GetAllCategory(int langue);
 }

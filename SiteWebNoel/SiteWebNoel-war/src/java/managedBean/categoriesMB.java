@@ -1,6 +1,7 @@
 package managedBean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -12,8 +13,6 @@ import siteWebEJB.CategoryEJBLocal;
 @RequestScoped
 public class categoriesMB 
 {    
-    @EJB
-    private CategoryEJBLocal categoryEJB;
     private ArrayList<Article> article;
     private ArrayList<String> listCategories;
     
@@ -46,7 +45,7 @@ public class categoriesMB
         return listCategories;
     }
     
-    public ArrayList<Categorie> getCategoryByLanguage() {
-        return categoryEJB.getCategoryByLanguage(1);
-    }
+    /*public HashMap<Integer, Categorie> GetAllCategory(int langue) {
+        return categoryEJB.GetAllCategory(langue);
+    }*/
 }
