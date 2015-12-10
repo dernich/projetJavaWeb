@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entityPackage;
 
 import java.io.Serializable;
@@ -21,10 +16,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Antoine
- */
 @Entity
 @Table(name = "TRADUCTIONARTICLE")
 @XmlRootElement
@@ -32,7 +23,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Traductionarticle.findAll", query = "SELECT t FROM Traductionarticle t"),
     @NamedQuery(name = "Traductionarticle.findById", query = "SELECT t FROM Traductionarticle t WHERE t.id = :id"),
     @NamedQuery(name = "Traductionarticle.findByTradlibellearticle", query = "SELECT t FROM Traductionarticle t WHERE t.tradlibellearticle = :tradlibellearticle"),
-    @NamedQuery(name = "Traductionarticle.findByTraddescriptionarticle", query = "SELECT t FROM Traductionarticle t WHERE t.traddescriptionarticle = :traddescriptionarticle")})
+    @NamedQuery(name = "Traductionarticle.findByTraddescriptionarticle", query = "SELECT t FROM Traductionarticle t WHERE t.traddescriptionarticle = :traddescriptionarticle"),
+    @NamedQuery(name = "Traductionarticle.findByCategorie", query = "SELECT t FROM Traductionarticle t inner join t.idArticle a inner join t.idLangue l inner join a.idCategorie c WHERE c.id = :idCategorie AND l.id = :idLangue")})
 public class Traductionarticle implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

@@ -1,5 +1,6 @@
 package siteWebEJB;
 
+import java.util.ArrayList;
 import javax.ejb.Local;
 import model.Utilisateur;
 
@@ -7,9 +8,8 @@ import model.Utilisateur;
 public interface ConnectionEJBLocal {
 
     void AddUser(Utilisateur user);
-
-    model.Pays getPaysById(Integer id);
             
-    //Utilisateur UserConnection(String login);
+    Utilisateur findUserByLogin(String login);
     
+    ArrayList<model.TraductionPays> getAllTradPaysByLanguage(int langue);
 }

@@ -3,8 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-ejb/src/java/sessionBeanPackage/UtilisateurFacade.java</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-ejb/src/java/sessionBeanPackage/UtilisateurFacadeLocal.java</file>
+            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-ejb/src/java/entityPackage/Utilisateur.java</file>
         </group>
     </open-files>
 </project-private>

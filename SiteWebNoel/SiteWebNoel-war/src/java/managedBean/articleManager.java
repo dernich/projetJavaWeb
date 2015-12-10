@@ -1,14 +1,25 @@
 package managedBean;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Locale;
+import javax.ejb.EJB;
 import model.Article;
+import siteWebEJB.ArticleEJBLocal;
 
-@ManagedBean
-@RequestScoped
-public class articleManager {
+@Named(value = "articleManager")
+@SessionScoped
+public class articleManager implements Serializable {
     
+    @EJB
+    private ArticleEJBLocal articleEJB;
     private Article articleToManage;
+    private ArrayList<Article> articles = new ArrayList<>();
+    
+    public articleManager() {
+    }
     
     public String outcome(){
         return "details";
@@ -22,4 +33,17 @@ public class articleManager {
         articleToManage = article;
     }
     
+    public ArrayList<Article> getArticleFromCategorie(Locale langue, int idCategorie){
+        
+        switch(langue.getLanguage()){
+            case "fr" : articles = articleEJB.getArticleFromCategorie(1, idCategorie);
+                break;
+            case "en" : articles = articleEJB.getArticleFromCategorie(2, idCategorie);
+                break;
+            default : articles = articleEJB.getArticleFromCategorie(3, idCategorie);
+                break;
+        }
+        
+        return articles;
+    }
 }

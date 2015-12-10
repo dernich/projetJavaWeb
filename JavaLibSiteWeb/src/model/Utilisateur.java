@@ -16,6 +16,19 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
+    public Utilisateur(String nom, String prenom, String email, String login, String motdepasse, String rue, int numeromaison, int codepostal, String localite, Pays idPays) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.login = login;
+        this.motdepasse = motdepasse;
+        this.rue = rue;
+        this.numeromaison = numeromaison;
+        this.codepostal = codepostal;
+        this.localite = localite;
+        this.idPays = idPays;
+    }
+
     public String getNom() {
         return nom;
     }

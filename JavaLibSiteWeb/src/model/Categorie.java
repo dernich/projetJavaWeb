@@ -4,27 +4,27 @@ import java.util.ArrayList;
 
 public class Categorie {
     
-    private ArrayList<String> listLibelleFR;
-    private ArrayList<String> listLibelleEN;
+    private String libelle;
+    private Integer categorie; //Foreign key vers la categorie
 
-    public Categorie() {
-        listLibelleFR = new ArrayList<>();
-        listLibelleEN = new ArrayList<>();
+    public Categorie(String libelle, Integer categorie) {
+        this.libelle = libelle;
+        this.categorie = categorie;
     }
 
-    public ArrayList<String> getListLibelleFR() {
-        return listLibelleFR;
-    }
-
-    public ArrayList<String> getListLibelleEN() {
-        return listLibelleEN;
+    public String getLibelle() {
+        return libelle;
     }
     
-    public void addListLibelleFR(String lib) {
-        listLibelleFR.add(lib);
+    public void setLibelle(String libelle){
+        this.libelle = libelle;
     }
-    
-    public void addListLibelleEN(String lib) {
-        listLibelleEN.add(lib);
+
+    public Integer getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Integer categorie) {
+        this.categorie = categorie;
     }
 }

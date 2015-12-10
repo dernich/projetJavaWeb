@@ -41,6 +41,8 @@ public class Langue implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLangue")
     private Collection<Traductioncategorie> traductioncategorieCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLangue")
+    private Collection<Traductionpays> traductionpaysCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idLangue")
     private Collection<Traductionarticle> traductionarticleCollection;
 
     public Langue() {
@@ -65,6 +67,15 @@ public class Langue implements Serializable {
 
     public void setTraductioncategorieCollection(Collection<Traductioncategorie> traductioncategorieCollection) {
         this.traductioncategorieCollection = traductioncategorieCollection;
+    }
+
+    @XmlTransient
+    public Collection<Traductionpays> getTraductionpaysCollection() {
+        return traductionpaysCollection;
+    }
+
+    public void setTraductionpaysCollection(Collection<Traductionpays> traductionpaysCollection) {
+        this.traductionpaysCollection = traductionpaysCollection;
     }
 
     @XmlTransient

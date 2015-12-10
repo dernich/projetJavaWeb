@@ -17,20 +17,20 @@
                 <div id="formConnection">
                     <h:form>
                         <h:outputLabel value="#{msg.login}" for="login"></h:outputLabel>
-                        <h:inputText id="login" binding="#{login}" 
+                        <h:inputText id="login" value="#{userMB.login}" 
                                      required="true" requiredMessage="#{msg.msgErrorLogin}">
                         </h:inputText>
                         <br/>
                         <h:message class="errorMessage" for="login" />
                         <br/><br/>
                         <h:outputLabel value="#{msg.password}" for="password"></h:outputLabel>
-                        <h:inputSecret id="password" binding="#{password}"
+                        <h:inputSecret id="password" value="#{userMB.mdp}"
                                        required="true" requiredMessage="#{msg.msgErrorPassword}">
                         </h:inputSecret>
                         <br/>
                         <h:message class="errorMessage" for="password" />
                         <br/><br/>
-                        <h:commandButton value="#{msg.connection}" action="#{userMB.UserConnection(login.value, password.value)}"></h:commandButton>
+                        <h:commandButton value="#{msg.connection}" action="#{userMB.connection()}"></h:commandButton>
                     </h:form>
                     <br/>
                     <h:link id="newCustomer" value="#{msg.newCustomer}" outcome="faces/inscription.xhtml"/>

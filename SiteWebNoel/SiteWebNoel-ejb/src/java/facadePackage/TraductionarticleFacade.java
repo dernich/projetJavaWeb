@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facadePackage;
 
 import entityPackage.Traductionarticle;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-/**
- *
- * @author Antoine
- */
 @Stateless
 public class TraductionarticleFacade extends AbstractFacade<Traductionarticle> implements TraductionarticleFacadeLocal {
     @PersistenceContext(unitName = "SiteWebNoel-ejbPU")
@@ -28,4 +21,12 @@ public class TraductionarticleFacade extends AbstractFacade<Traductionarticle> i
         super(Traductionarticle.class);
     }
     
+    @Override
+    public List<Traductionarticle> getArticleFromCategorie(int langue, int idCategorie){
+        Query query;
+        query = em.createNamedQuery("Traductionarticle.findByCategorie");
+        query.setParameter("idCategorie", idCategorie);
+        query.setParameter("idLangue", langue);
+        return query.getResultList();
+    }
 }

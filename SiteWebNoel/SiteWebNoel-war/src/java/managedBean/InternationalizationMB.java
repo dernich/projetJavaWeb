@@ -1,12 +1,10 @@
 package managedBean;
 
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.Locale;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
 
-@ManagedBean
 @Named(value = "internationalizationMB")
 @SessionScoped
 public class InternationalizationMB implements Serializable {

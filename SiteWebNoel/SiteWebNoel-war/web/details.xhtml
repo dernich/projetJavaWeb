@@ -26,7 +26,9 @@
                         <h:outputText value="#{msg.descriptionArticle}" style="font-weight: bold;"/>
                         <h:outputText value="#{articleManager.articleToManage.description}"/>
                         <br/><br/>
-                        <h:commandButton id="boutonPanier" value="#{msg.addBasket}" action="#{basket.addArticleList(articleManager.articleToManage)}"/>
+                        <h:commandButton id="boutonPanier" value="#{msg.addBasket}" actionListener="#{basketMB.addArticleList(articleManager.articleToManage)}">
+                            <f:setPropertyActionListener target="#{basketMB.art}" value="#{articleManager.articleToManage}"/>
+                        </h:commandButton>
                     </div>
                 </div>
             </ui:define>

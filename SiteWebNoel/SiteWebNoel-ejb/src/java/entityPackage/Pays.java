@@ -18,7 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -31,8 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Pays.findAll", query = "SELECT p FROM Pays p"),
-    @NamedQuery(name = "Pays.findById", query = "SELECT p FROM Pays p WHERE p.id = :id"),
-    @NamedQuery(name = "Pays.findByLibelle", query = "SELECT p FROM Pays p WHERE p.libelle = :libelle")})
+    @NamedQuery(name = "Pays.findById", query = "SELECT p FROM Pays p WHERE p.id = :id")})
 public class Pays implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,11 +38,10 @@ public class Pays implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @Size(max = 50)
-    @Column(name = "LIBELLE")
-    private String libelle;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPays")
     private Collection<Utilisateur> utilisateurCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPays")
+    private Collection<Traductionpays> traductionpaysCollection;
 
     public Pays() {
     }
@@ -61,14 +58,6 @@ public class Pays implements Serializable {
         this.id = id;
     }
 
-    public String getLibelle() {
-        return libelle;
-    }
-
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
     @XmlTransient
     public Collection<Utilisateur> getUtilisateurCollection() {
         return utilisateurCollection;
@@ -76,6 +65,15 @@ public class Pays implements Serializable {
 
     public void setUtilisateurCollection(Collection<Utilisateur> utilisateurCollection) {
         this.utilisateurCollection = utilisateurCollection;
+    }
+
+    @XmlTransient
+    public Collection<Traductionpays> getTraductionpaysCollection() {
+        return traductionpaysCollection;
+    }
+
+    public void setTraductionpaysCollection(Collection<Traductionpays> traductionpaysCollection) {
+        this.traductionpaysCollection = traductionpaysCollection;
     }
 
     @Override

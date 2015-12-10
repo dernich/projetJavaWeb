@@ -29,15 +29,26 @@
             <h:outputText id="title" value="Christmas Things"/>
             
             <c:set var="user" scope="session" value="#{userMB.user}"/>
+            
             <div id="connection">
-                <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
+                <c:if test="#{userMB.connected==false}">
+                    <h:form>
+                        <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
+                    </h:form>
+                </c:if>
+                <c:if test="#{userMB.connected==true}">
+                    <h:form>
+                        <h:outputText value="Bienvenue, #{userMB.user.prenom} #{userMB.user.nom}"/>
+                        <h:commandButton id="buttonConnectionTop" value="#{msg.deconnection}" action="#{userMB.logout()}"/>
+                    </h:form>
+                </c:if>
             </div>
             
             <div id="panier">
                 <h:link outcome="faces/panier.xhtml">
                     <h:outputText id="textPanier" value="#{msg.basket}"></h:outputText>
                     <h:graphicImage id="imagePanier" url="./images/panier.png" width="30px" height="30px"></h:graphicImage>
-                    <h:outputText value="#{basket.countList()}" style="float:right; font-size: 1.3em; margin-top: 10px; margin-left: 10px;"/>
+                    <h:outputText value="#{basketMB.countList()}" style="float:right; font-size: 1.3em; margin-top: 10px; margin-left: 10px;"/>
                 </h:link>
             </div>
         </div>
@@ -53,11 +64,15 @@
                 <ul>
                     <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
                     <li><h:outputText value="#{msg.category}"/></li>
-                    <ul>
-                        <c:forEach items="#{categoriesMB.listCategory}" var="cat">
-                            <li><h:link value="#{cat}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tree}"/></h:link></li>
+                    <h:form>
+                        <ul>
+                        <c:forEach items="#{categorieMB.getCategories(internationalizationMB.locale)}" var="cat">
+                            <li>
+                                <h:commandLink action="#{categorieMB.setCategorieSelected(cat.categorie)}"><h:outputText value="#{cat.libelle}"/></h:commandLink>
+                            </li>
                         </c:forEach>
                     </ul>
+                    </h:form>
                     <li><h:link value="#{msg.contact}" outcome="faces/contact.xhtml"/></li>
                 </ul>
             </div>

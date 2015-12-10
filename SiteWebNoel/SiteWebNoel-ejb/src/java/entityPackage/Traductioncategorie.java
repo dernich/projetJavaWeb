@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entityPackage;
 
 import java.io.Serializable;
@@ -21,17 +16,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Antoine
- */
 @Entity
 @Table(name = "TRADUCTIONCATEGORIE")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Traductioncategorie.findAll", query = "SELECT t FROM Traductioncategorie t"),
     @NamedQuery(name = "Traductioncategorie.findById", query = "SELECT t FROM Traductioncategorie t WHERE t.id = :id"),
-    @NamedQuery(name = "Traductioncategorie.findByTradlibellecategorie", query = "SELECT t FROM Traductioncategorie t WHERE t.tradlibellecategorie = :tradlibellecategorie")})
+    @NamedQuery(name = "Traductioncategorie.findByTradlibellecategorie", query = "SELECT t FROM Traductioncategorie t WHERE t.tradlibellecategorie = :tradlibellecategorie"),
+    @NamedQuery(name = "Traductioncategorie.findByLanguage", query = "SELECT t FROM Traductioncategorie t inner join t.idLangue l WHERE l.id = :idLangue")})
 public class Traductioncategorie implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

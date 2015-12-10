@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facadePackage;
 
 import entityPackage.Pays;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Local;
 
-/**
- *
- * @author Antoine
- */
 @Local
 public interface PaysFacadeLocal {
 
@@ -30,6 +22,7 @@ public interface PaysFacadeLocal {
 
     int count();
     
-    model.Pays getPaysById(Integer id);
+    ArrayList<model.Pays> getAllPays();
     
+    model.Pays getPaysById(Integer id);
 }
