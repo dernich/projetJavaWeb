@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <h1><h:outputText value="#{msg.basket}"/></h1>
+                
+                <h:dataTable id="basket" value="#{basketMB.listePanier}" var="line" rowClasses="odd,even">
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value=""/>
+                        </f:facet>
+                        <h:graphicImage url="#{line.article.urlImage}" height="70px" width="70px"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.nameArticle}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.article.nom}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.unityPrice}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.article.prix}" converter="priceConverter"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.quantityOrder}"/>
+                        </f:facet>
+                        <p:spinner min="0" size="2" value="#{line.quantiteCommande}" 
+                                   valueChangeListener="#{line.quantiteCommande}"/>
+                        <h:form>
+                            <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" class="headerBasket">
+                            <h:outputText value="#{msg.totalPrice}"/>
+                        </f:facet>
+                        <h:outputText value="#{line.totalArticle}" converter="priceConverter"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+                <div id="totalCommande">
+                    <h:outputText value="#{msg.soustotalOrder} #{basketMB.subtotal} €"/>
+                    <br/>
+                    <h:outputText value="#{msg.discount} : #{basketMB.promotion} %"/>
+                    <br/>
+                    <h:outputText value="#{msg.totalOrder} #{basketMB.total} €"/>
+                    <br/><br/>
+                    <c:if test="#{userMB.connected==true}">
+                        <h:form>
+                            <h:commandButton action="/faces/confirmationCommande.xhtml" value="#{msg.order}" style="background-color:yellow;"/>
+                        </h:form>
+                    </c:if>
+                    <c:if test="#{userMB.connected==false}">
+                        <h:form>
+                            <h:commandButton action="/faces/connection.xhtml" value="#{msg.order}" style="background-color:yellow;"/>
+                        </h:form>
+                    </c:if>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

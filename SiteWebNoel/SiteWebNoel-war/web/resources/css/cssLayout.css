@@ -1,0 +1,251 @@
+#top {
+    position: relative;
+    background-color: #F94F40;
+    color: #D8CA7F;
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+}
+
+#title {
+    font-size: 2em;
+    font-weight: bold;
+    float: left;
+    margin-left: 30px;
+}
+
+#imageHeader {
+    float:left; 
+    height:100px; 
+    margin-top:-30px;
+}
+
+#panier {
+    text-align: right;
+    margin : 0px 20px 10px 0px;
+}
+
+#discount {
+    color: #952F26;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #D8CA7F;
+    margin: 0px 0px 10px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+#bottom {
+    background-color: #FB958C;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+    color: #952F26;
+}
+
+#left {
+    float: left;
+    background-color: #F94F40;
+    padding: 5px;
+    width: 150px;
+    color: #FFFFFF;
+    font-weight : bold;
+}
+
+#right {
+    float: right;
+    background-color: #ECE3A5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #EEEEEE;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #EEEEEE;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #EEEEEE;
+    padding: 0px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: #FFFFFF;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  font-weight : bold;
+}
+
+#langues {
+    text-align: right; 
+    margin: 5px 5px 15px 0px;
+}
+
+#connection {
+    text-align: right;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+#formConnection {
+    text-align: center; 
+    border: 1px solid #ABABAB; 
+    width: 300px; 
+    margin:auto; 
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+#buttonConnectionTop {
+    background-color: #FFFFFF;
+    color: #952F26;
+    font-weight: bold;
+}
+
+#linkMail {
+    color: #000000;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#linkMail:hover {
+    background-color: #EEEEEE;
+}
+
+#formSignUp { 
+    border: 1px solid #ABABAB; 
+    width: auto; 
+    margin: 0 20% 0 20%; 
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+#contact {
+    text-align: center;
+}
+
+#newCustomer {
+    color: #000000;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+#newCustomer:hover {
+    background-color: #EEEEEE;
+}
+
+#divArticle{
+    border: 1px solid #952F26;
+    height: auto;
+    width: 250px;
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+    margin-left: 13px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.nomArticle{
+    font-size: 1.4em;
+    text-align: center;
+    color: #F94F40;
+}
+
+.prixArticle{
+    font-weight:bold;
+}
+
+.errorMessage {
+    color: #F94F40;
+}
+
+.label {
+    display: block;
+    width: 45%;
+    float: left;
+    padding-right: 1%;
+    text-align: right;
+}
+
+#divCategory{
+    margin-bottom:50px;
+    margin-left:13px;
+}
+
+#titleCategory{
+    font-size:large;
+    font-weight:bold;
+    color: #F94F40;
+}
+
+#basket {
+    width: 100%;
+    text-align: center;
+}
+
+#basket tr.odd {
+    background-color: #bdbdbd;
+}
+
+#basket th {
+    background-color: #FB958C;
+}
+
+#totalCommande {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-top: 1px solid #AFAFAF; 
+    text-align: right;
+    font-size: 1.7em;
+    font-weight: bold;
+    padding-right: 30px;
+    color: #F94F40;
+}
+
+#descriptionContent{
+    font-size: 1.3em;
+}
+
+#descriptionArticle {
+    display:inline-block; 
+    margin: 20px; 
+    margin-top: 5px; 
+    vertical-align: top;
+    width: 250px;
+}
+
+#imageDescription {
+    margin-left: 50px; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    display:inline-block; 
+    vertical-align: top;
+}
+
+#boutonPanier {
+    display: block; 
+    margin:auto;
+}
+
+#price {
+    font-weight: bold;
+    color: #F94F40;
+}
+
+#userData {
+    font-weight: bold;
+    color: #F94F40;
+    margin: 10px;
+}

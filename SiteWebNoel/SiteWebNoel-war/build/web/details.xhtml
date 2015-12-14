@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    
+    <body>
+        <ui:composition template="./template.xhtml">
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <div id="descriptionContent">
+                    <div id="imageDescription">
+                        <h:graphicImage url="#{articleManager.articleToManage.urlImage}" width="250px" height="250px"/> 
+                    </div>
+                    <div id="descriptionArticle">
+                        <h3><h:outputText value="#{articleManager.articleToManage.nom}"/></h3>
+                        <br/>
+                        <h:outputText value="#{msg.price}" style="font-weight: bold;"/>
+                        <h:outputText id="price" value="#{articleManager.articleToManage.prix} €"/>
+                        <br/><br/>
+                        <h:outputText value="#{msg.descriptionArticle}" style="font-weight: bold;"/>
+                        <h:outputText value="#{articleManager.articleToManage.description}"/>
+                        <br/><br/>
+                        <h:form>
+                            <h:commandButton id="boutonPanier" value="#{msg.addBasket}" actionListener="#{basketMB.addArticleList(articleManager.articleToManage)}"/>
+                        </h:form> 
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
