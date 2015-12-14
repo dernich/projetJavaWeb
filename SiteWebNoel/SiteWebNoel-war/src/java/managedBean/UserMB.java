@@ -4,7 +4,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.security.Key;
-import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.ejb.EJB;
@@ -136,18 +135,5 @@ public class UserMB implements Serializable {
             byte[] password = cipher.doFinal(new BASE64Decoder().decodeBuffer(mdp));
             return new String(password);
         }
-    }
-
-    public String getUserPays(Locale langue) {
-        String pays;
-        switch(langue.getLanguage()){
-            case "fr" : pays = connectionEJB.getCountryByIdByLanguage(user.getIdPays().getId(), 1);
-                break;
-            case "en" : pays = connectionEJB.getCountryByIdByLanguage(user.getIdPays().getId(), 2);
-                break;
-            default : pays = connectionEJB.getCountryByIdByLanguage(user.getIdPays().getId(), 2);
-                break;
-        }
-        return pays;
     }
 }

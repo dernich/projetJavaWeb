@@ -12,6 +12,4 @@ public interface ConnectionEJBLocal {
     Utilisateur findUserByLogin(String login);
     
     ArrayList<model.TraductionPays> getAllTradPaysByLanguage(int langue);
-    
-    String getCountryByIdByLanguage(int id, int langue);
 }

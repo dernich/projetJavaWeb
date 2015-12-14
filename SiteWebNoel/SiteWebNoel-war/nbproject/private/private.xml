@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/panier.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/BasketMB.java</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/web/categories.xhtml</file>
-            <file>file:/C:/Users/Antoine/Documents/IESN/3eme/JavaWeb/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/UserMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/categorieMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/panier.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/connection.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/UserMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/BasketMB.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/details.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/categories.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/src/java/managedBean/articleManager.java</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/inscription.xhtml</file>
+            <file>file:/C:/Users/Degraux/Documents/IESN/3e/AntoineJW/SiteWebNoel/SiteWebNoel-war/web/confirmation.xhtml</file>
         </group>
     </open-files>
 </project-private>

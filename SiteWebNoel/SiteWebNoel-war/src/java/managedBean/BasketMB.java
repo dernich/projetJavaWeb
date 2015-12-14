@@ -4,7 +4,6 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import javax.ejb.EJB;
 import model.Article;
 import model.LigneCommande;
@@ -22,17 +21,17 @@ public class BasketMB implements Serializable {
     private Double subtotal = 0.0;
     private Double promotion= 0.0;
     private Article art;
-    Iterator<LigneCommande> iter = ligneCommande.iterator();
+    private boolean dejaPresent;
+    private Integer ligneDejaPresent;
     
     public BasketMB() {
         
     }
     
-    /*public void quantityChanged(ValueChangeEvent e) {
-        int quantiteChange = Integer.parseInt(e.getNewValue().toString());
-        ligneCommande.get(i).setQuantite(quantiteChange);
+    public void setQuantiteCommande(LigneCommande l){
         
-    }*/
+        l.setQuantiteCommande(5);
+    }
 
     public Article getArt() {
         return art;
@@ -43,22 +42,29 @@ public class BasketMB implements Serializable {
     }
     
     public void addArticleList(Article a) {
-        if(a.getQuantiteStock() > 0) {
+        dejaPresent = false;
+        for(int i = 0; i < ligneCommande.size(); i++){
+            if(a.getId() == ligneCommande.get(i).getArticle().getId()){
+                dejaPresent = true;
+                ligneDejaPresent = i;
+            }
+        }
+        
+        if(a.getQuantiteStock() > 0 && !dejaPresent) {
             ligneCommande.add(new LigneCommande(a, 1));
             subtotal += a.getPrix();
+        } else {
+           ligneCommande.get(ligneDejaPresent).setQuantiteCommande(ligneCommande.get(ligneDejaPresent).getQuantiteCommande() + 1);
         }
     }
     
     public void delArticle(LigneCommande ligne) {
-        ArrayList toRemove = new ArrayList();
-        for (LigneCommande l : ligneCommande) {
+        for(LigneCommande l : ligneCommande) {
             if(l.equals(ligne)) {
-                toRemove.add(l);
+                ligneCommande.remove(l);
             }
         }
-        ligneCommande.removeAll(toRemove);
-        subtotal -= ligne.getArticle().getPrix();
-        calculPromotion();
+        //total -= a.getPrix();
     }
     
     public ArrayList<LigneCommande> getListePanier()
@@ -90,11 +96,6 @@ public class BasketMB implements Serializable {
     }
 
     public Double getPromotion() {
-        calculPromotion();
-        return promotion * 100;
-    }
-    
-    public void calculPromotion() {
         if(subtotal > 100.00) {
             promotion = 0.20;
         }
@@ -102,18 +103,17 @@ public class BasketMB implements Serializable {
             if(subtotal > 50.00) {
                 promotion = 0.10;
             }
-            else {
-                promotion = 0.00;
-            }
         }
         promotion =(double)((int)(promotion*100))/100;
+        return promotion * 100;
     }
-    
+
     public void setPromotion(Double promotion) {
         this.promotion = promotion;
     }
     
-    public void createCommande(Utilisateur user){
+    public String createCommande(Utilisateur user){
         commandeEJB.createCommande(ligneCommande, user);
+        return "confirmation.xhml";
     }
 }

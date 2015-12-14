@@ -28,12 +28,4 @@ public class TraductionpaysFacade extends AbstractFacade<Traductionpays> impleme
         query.setParameter("idLangue", langue);
         return query.getResultList();
     }
-    
-    public String findByIdByLanguage(int id, int langue) {
-        Query query;
-        query = em.createNamedQuery("Traductionpays.findByIdByLanguage");
-        query.setParameter("idPays", id);
-        query.setParameter("idLangue", langue);
-        return (String)query.getSingleResult();
-    }
 }

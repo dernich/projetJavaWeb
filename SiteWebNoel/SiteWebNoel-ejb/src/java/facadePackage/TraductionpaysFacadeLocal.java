@@ -22,6 +22,4 @@ public interface TraductionpaysFacadeLocal {
     int count();
     
     List<Traductionpays> getAllTradPaysByLanguage(int langue);
-    
-    String findByIdByLanguage(int id, int langue);
 }

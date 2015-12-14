@@ -9,19 +9,17 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("emailValidator")
-public class EmailValidator implements Validator {
 
+@FacesValidator("cityValidator")
+public class CityValidator implements Validator {
 
-	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\." +
-			"[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*" +
-			"(\\.[A-Za-z]{2,})$";
+    private static final String NAME_PATTERN = "^[a-zA-Z]+([a-zA-Z -])*";
 
 	private Pattern pattern;
 	private Matcher matcher;
 	
-	public EmailValidator(){
-		  pattern = Pattern.compile(EMAIL_PATTERN);
+	public CityValidator(){
+		  pattern = Pattern.compile(NAME_PATTERN);
 	}
 	
 	@Override
@@ -32,8 +30,8 @@ public class EmailValidator implements Validator {
 		if(!matcher.matches()){
 			
 			FacesMessage msg = 
-				new FacesMessage("E-mail validation failed.", 
-						"Invalid E-mail format.");
+				new FacesMessage("City validation failed.", 
+						"Invalid city's name format.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 

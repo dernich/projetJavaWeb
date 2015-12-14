@@ -29,11 +29,9 @@
                                     <br/><br/>
                                     <h:outputText class="prixArticle" value="Prix : #{article.prix} €"/>
                                     <br/><br/>
-                                    <h:commandButton value="details" action="/faces/details.xhtml">
-                                        <f:setPropertyActionListener target="#{articleManager.articleToManage}" value="#{article}"/>
-                                    </h:commandButton>
-                                    <br/>
-                                    <h:commandButton id="boutonPanier" value="#{msg.addBasket}" action="#{basketMB.addArticleList(article)}"/>
+                                    <h:commandLink action="#{articleManager.setArticleDetails(article)}">
+                                        <h:outputText value="#{msg.details}"/>
+                                    </h:commandLink>
                                     
                                 </h:form>
                             </div>

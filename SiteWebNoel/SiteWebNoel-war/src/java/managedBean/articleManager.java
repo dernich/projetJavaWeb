@@ -48,6 +48,11 @@ public class articleManager implements Serializable {
         return articles;
     }
     
+    public String setArticleDetails(Article article){
+        setArticleToManage(article);
+        return "details.xhtml";
+    }
+    
     public void addArticle() {
         basket.addArticleList(articleToManage);
     }
