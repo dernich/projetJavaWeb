@@ -4,6 +4,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.ejb.EJB;
 import model.Article;
 import model.LigneCommande;
@@ -24,14 +25,17 @@ public class BasketMB implements Serializable {
     private boolean dejaPresent;
     private Integer ligneDejaPresent;
     
+    Iterator<LigneCommande> iter = ligneCommande.iterator();
+    
     public BasketMB() {
         
     }
     
-    public void setQuantiteCommande(LigneCommande l){
+    /*public void quantityChanged(ValueChangeEvent e) {
+        int quantiteChange = Integer.parseInt(e.getNewValue().toString());
+        ligneCommande.get(i).setQuantite(quantiteChange);
         
-        l.setQuantiteCommande(5);
-    }
+    }*/
 
     public Article getArt() {
         return art;
@@ -59,12 +63,15 @@ public class BasketMB implements Serializable {
     }
     
     public void delArticle(LigneCommande ligne) {
-        for(LigneCommande l : ligneCommande) {
+        ArrayList toRemove = new ArrayList();
+        for (LigneCommande l : ligneCommande) {
             if(l.equals(ligne)) {
-                ligneCommande.remove(l);
+                toRemove.add(l);
             }
         }
-        //total -= a.getPrix();
+        ligneCommande.removeAll(toRemove);
+        subtotal -= ligne.getArticle().getPrix();
+        calculPromotion();
     }
     
     public ArrayList<LigneCommande> getListePanier()
@@ -96,6 +103,11 @@ public class BasketMB implements Serializable {
     }
 
     public Double getPromotion() {
+        calculPromotion();
+        return promotion * 100;
+    }
+    
+    public void calculPromotion() {
         if(subtotal > 100.00) {
             promotion = 0.20;
         }
@@ -103,17 +115,18 @@ public class BasketMB implements Serializable {
             if(subtotal > 50.00) {
                 promotion = 0.10;
             }
+            else {
+                promotion = 0.00;
+            }
         }
         promotion =(double)((int)(promotion*100))/100;
-        return promotion * 100;
     }
-
+    
     public void setPromotion(Double promotion) {
         this.promotion = promotion;
     }
     
-    public String createCommande(Utilisateur user){
+    public void createCommande(Utilisateur user){
         commandeEJB.createCommande(ligneCommande, user);
-        return "confirmation.xhml";
     }
 }

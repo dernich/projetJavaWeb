@@ -31,21 +31,23 @@
                         <f:facet name="header" class="headerBasket">
                             <h:outputText value="#{msg.unityPrice}"/>
                         </f:facet>
-                        <h:outputText value="#{line.article.prix} €"/>
+                        <h:outputText value="#{line.article.prix}" converter="priceConverter"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="headerBasket">
                             <h:outputText value="#{msg.quantityOrder}"/>
                         </f:facet>
-                        <p:spinner id="quantite" min="1" size="2" value="#{line.quantiteCommande}" 
-                                   valueChangeListener="#{basketMB.setQuantiteCommande(line)}"/>
-                        <h:commandButton action="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                        <p:spinner min="0" size="2" value="#{line.quantiteCommande}" 
+                                   valueChangeListener="#{line.quantiteCommande}"/>
+                        <h:form>
+                            <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                        </h:form>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="headerBasket">
                             <h:outputText value="#{msg.totalPrice}"/>
                         </f:facet>
-                        <h:outputText value="#{line.totalArticle} €"/>
+                        <h:outputText value="#{line.totalArticle}" converter="priceConverter"/>
                     </h:column>
                 </h:dataTable>
                 <br/>
@@ -58,7 +60,7 @@
                     <br/><br/>
                     <c:if test="#{userMB.connected==true}">
                         <h:form>
-                            <h:commandButton action="#{basketMB.createCommande(userMB.user)}" value="Passer commande" style="background-color:yellow;"/>
+                            <h:commandButton action="/faces/confirmationCommande.xhtml" value="#{msg.order}" style="background-color:yellow;"/>
                         </h:form>
                     </c:if>
                     <c:if test="#{userMB.connected==false}">

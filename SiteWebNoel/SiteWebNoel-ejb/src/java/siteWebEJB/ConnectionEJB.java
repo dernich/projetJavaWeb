@@ -56,4 +56,8 @@ public class ConnectionEJB implements ConnectionEJBLocal {
         }
         return listCountries;
     }
+    
+    public String getCountryByIdByLanguage(int id, int langue) {
+        return traductionpaysFacade.findByIdByLanguage(id, langue);
+    }
 }

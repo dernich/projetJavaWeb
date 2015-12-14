@@ -7,7 +7,7 @@ public class Pays {
     public Pays(int id) {
         this.id = id;
     }
-
+    
     public Pays() {
     }
     

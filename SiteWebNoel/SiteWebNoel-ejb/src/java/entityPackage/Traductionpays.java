@@ -23,7 +23,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Traductionpays.findAll", query = "SELECT t FROM Traductionpays t"),
     @NamedQuery(name = "Traductionpays.findById", query = "SELECT t FROM Traductionpays t WHERE t.id = :id"),
     @NamedQuery(name = "Traductionpays.findByTradlibellepays", query = "SELECT t FROM Traductionpays t WHERE t.tradlibellepays = :tradlibellepays"),
-    @NamedQuery(name = "Traductionpays.findByLanguage", query = "SELECT t FROM Traductionpays t inner join t.idLangue l WHERE l.id = :idLangue")})
+    @NamedQuery(name = "Traductionpays.findByLanguage", query = "SELECT t FROM Traductionpays t inner join t.idLangue l WHERE l.id = :idLangue"),
+    @NamedQuery(name = "Traductionpays.findByIdByLanguage", query = "SELECT t.tradlibellepays FROM Traductionpays t inner join t.idLangue l WHERE t.id = :idPays and l.id = :idLangue")})
 public class Traductionpays implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

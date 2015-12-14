@@ -4,15 +4,27 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
     <body>
 
         <ui:composition template="./template.xhtml">
             <f:loadBundle basename="languages.lang" var="msg"/>
             <ui:define name="content">
-                <h1><h:outputText value="#{msg.basket}"/></h1>
+                <h1><h:outputText value="#{msg.confirmation}"/></h1>
+                
+                <fieldset>
+                    <legend><h:outputText value="#{msg.shippingAddress}"/><br/></legend>
+                    <div id="userData">
+                        <h:outputText value="#{userMB.user.prenom} #{userMB.user.nom}"/><br/>
+                        <h:outputText value="#{userMB.user.rue}, #{userMB.user.numeromaison}"/><br/>
+                        <h:outputText value="#{userMB.user.codepostal} #{userMB.user.localite}"/><br/>
+                        <h:outputText value="#{userMB.getUserPays(internationalizationMB.locale)}"/><br/>
+                    </div>
+                </fieldset>
                 
                 <h:dataTable id="basket" value="#{basketMB.listePanier}" var="line" rowClasses="odd,even">
                     <h:column>
@@ -37,11 +49,7 @@
                         <f:facet name="header" class="headerBasket">
                             <h:outputText value="#{msg.quantityOrder}"/>
                         </f:facet>
-                        <p:spinner min="0" size="2" value="#{line.quantiteCommande}" 
-                                   valueChangeListener="#{line.quantiteCommande}"/>
-                        <h:form>
-                            <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
-                        </h:form>
+                        <h:outputText value="#{line.quantiteCommande}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header" class="headerBasket">
@@ -58,16 +66,9 @@
                     <br/>
                     <h:outputText value="#{msg.totalOrder} #{basketMB.total} €"/>
                     <br/><br/>
-                    <c:if test="#{userMB.connected==true}">
-                        <h:form>
-                            <h:commandButton action="/faces/confirmationCommande.xhtml" value="#{msg.order}" style="background-color:yellow;"/>
-                        </h:form>
-                    </c:if>
-                    <c:if test="#{userMB.connected==false}">
-                        <h:form>
-                            <h:commandButton action="/faces/connection.xhtml" value="#{msg.order}" style="background-color:yellow;"/>
-                        </h:form>
-                    </c:if>
+                    <h:form>
+                        <h:commandButton action="#{basketMB.createCommande(userMB.user)}" value="#{msg.order}" style="background-color:yellow;"/>
+                    </h:form>
                 </div>
             </ui:define>
 
