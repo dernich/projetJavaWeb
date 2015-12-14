@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    
+    <body>
+
+        <ui:composition template="./template.xhtml">
+            
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <h1><h:outputText value="#{msg.signUp}"/></h1>
+                <div id="formSignUp">
+                    <h:form>
+                        <h:outputLabel class="label" value="#{msg.name}" for="name"></h:outputLabel>
+                        <h:inputText id="name" value="#{userConnection.user.nom}" 
+                                     required="true" requiredMessage="#{msg.msgErrorName}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="name" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.firstName}" for="firstName"></h:outputLabel>
+                        <h:inputText id="firstName" value="#{userConnection.user.prenom}" 
+                                     required="true" requiredMessage="#{msg.msgErrorFirstName}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="firstName" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.address}" for="address"></h:outputLabel>
+                        <h:inputText id="address" value="#{userConnection.user.rue}"
+                                     required="true" requiredMessage="#{msg.msgErrorAddress}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="address" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.number}" for="number"></h:outputLabel>
+                        <h:inputText id="number" value="#{userConnection.user.numeromaison}" maxlength="3" 
+                                     required="true" requiredMessage="#{msg.msgErrorNumber}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="number" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.postalCode}" for="postalCode"></h:outputLabel>
+                        <h:inputText id="postalCode" value="#{userConnection.user.codepostal}" 
+                                     required="true" requiredMessage="#{msg.msgErrorPostalCode}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="postalCode" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.city}" for="city"></h:outputLabel>
+                        <h:inputText id="city" value="#{userConnection.user.localite}" 
+                                     required="true" requiredMessage="#{msg.msgErrorCity}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="city" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.country}"></h:outputLabel>
+                        <h:selectOneMenu id="selectCountry">
+                            <f:selectItem itemValue="1" itemLabel="Belgique"/>
+                            <f:selectItem itemValue="2" itemLabel="Luxembourg"/>
+                            <f:selectItem itemValue="3" itemLabel="Pays-Bas"/>
+                            <f:selectItem itemValue="4" itemLabel="France"/>
+                            <f:selectItem itemValue="5" itemLabel="Royaume-Uni"/>
+                        </h:selectOneMenu>
+                        <br/><br/>
+                        <h:outputLabel class="label" value="#{msg.mail}" for="mail"></h:outputLabel>
+                        <h:inputText id="mail" value="#{userConnection.user.email}" 
+                                     required="true" requiredMessage="#{msg.msgErrorMail}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="mail" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.login}" for="login"></h:outputLabel>
+                        <h:inputText id="login" value="#{userConnection.user.login}" 
+                                     required="true" requiredMessage="#{msg.msgErrorLogin}">
+                        </h:inputText>
+                        <h:message class="errorMessage" for="login" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.password}" for="password"></h:outputLabel>
+                        <h:inputSecret id="password" value="#{userConnection.user.motdepasse}"
+                                       required="true" requiredMessage="#{msg.msgErrorPassword}">
+                        </h:inputSecret>
+                        <h:message class="errorMessage" for="password" />
+                        <br/>
+                        <h:outputLabel class="label" value="#{msg.confirmPassword}" for="confirmPassword"></h:outputLabel>
+                        <h:inputSecret id="confirmPassword"   
+                                       required="true" requiredMessage="#{msg.msgErrorConfirmPassword}">
+                        </h:inputSecret>
+                        <h:message class="errorMessage" for="confirmPassword" />
+                        <br/><br/>
+                        <h:commandButton value="#{msg.createAccount}" action="#{userConnection.addUser}" style="margin-left: 46%;"></h:commandButton>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
