@@ -14,43 +14,20 @@
             <ui:define name="content">
                 <h1><h:outputText value="#{msg.basket}"/></h1>
                 
-                <h:dataTable id="basket" value="#{basketMB.listePanier}" var="line" rowClasses="odd,even">
-                    <h:column>
-                        <f:facet name="header" class="headerBasket">
-                            <h:outputText value=""/>
-                        </f:facet>
-                        <h:graphicImage url="#{line.article.urlImage}" height="70px" width="70px"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header" class="headerBasket">
-                            <h:outputText value="#{msg.nameArticle}"/>
-                        </f:facet>
-                        <h:outputText value="#{line.article.nom}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header" class="headerBasket">
-                            <h:outputText value="#{msg.unityPrice}"/>
-                        </f:facet>
-                        <h:outputText value="#{line.article.prix}" converter="priceConverter"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header" class="headerBasket">
-                            <h:outputText value="#{msg.quantityOrder}"/>
-                        </f:facet>
-                        <p:spinner min="0" size="2" value="#{line.quantiteCommande}" 
-                                   valueChangeListener="#{line.quantiteCommande}"/>
-                        <h:form>
-                            <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
-                        </h:form>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header" class="headerBasket">
-                            <h:outputText value="#{msg.totalPrice}"/>
-                        </f:facet>
-                        <h:outputText value="#{line.totalArticle}" converter="priceConverter"/>
-                    </h:column>
-                </h:dataTable>
-                <br/>
+                <c:forEach items="#{basketMB.listePanier}" var="caddy">
+                            <div  id="divArticle">
+                                <h:graphicImage url="#{caddy.value.article.urlImage}" height="70px" width="70px"/>
+                                <h:outputText value="#{caddy.value.article.nom}"/>
+                                <h:outputText value="#{caddy.value.article.prix}" converter="priceConverter"/>
+                                <p:spinner min="0" size="2" value="#{caddy.value.quantiteCommande}" 
+                                   valueChangeListener="#{caddy.value.quantiteCommande}"/>
+                                <h:form>
+                                    <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
+                                </h:form>
+                                <h:outputText value="#{caddy.value.totalArticle}" converter="priceConverter"/>
+                            </div>
+                </c:forEach>
+                
                 <div id="totalCommande">
                     <h:outputText value="#{msg.soustotalOrder} #{basketMB.subtotal} €"/>
                     <br/>

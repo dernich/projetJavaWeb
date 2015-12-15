@@ -23,18 +23,21 @@
                         <h:outputLabel class="label" value="* #{msg.name}" for="name"></h:outputLabel>
                         <h:inputText id="name" value="#{userMB.user.nom}" 
                                      required="true" requiredMessage="#{msg.msgErrorName}">
+                            <f:validator validatorId="nameValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="name" />
                         <br/>
                         <h:outputLabel class="label" value="* #{msg.firstName}" for="firstName"></h:outputLabel>
                         <h:inputText id="firstName" value="#{userMB.user.prenom}" 
                                      required="true" requiredMessage="#{msg.msgErrorFirstName}">
+                            <f:validator validatorId="nameValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="firstName" />
                         <br/>
                         <h:outputLabel class="label" value="* #{msg.address}" for="address"></h:outputLabel>
                         <h:inputText id="address" value="#{userMB.user.rue}"
                                      required="true" requiredMessage="#{msg.msgErrorAddress}">
+                            <f:validator validatorId="streetValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="address" />
                         <br/>
@@ -59,6 +62,7 @@
                         <h:outputLabel class="label" value="* #{msg.city}" for="city"></h:outputLabel>
                         <h:inputText id="city" value="#{userMB.user.localite}" 
                                      required="true" requiredMessage="#{msg.msgErrorCity}">
+                            <f:validator validatorId="cityValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="city" />
                         <br/>
@@ -78,12 +82,14 @@
                         <h:outputLabel class="label" value="* #{msg.mail}" for="mail"></h:outputLabel>
                         <h:inputText id="mail" value="#{userMB.user.email}" 
                                      required="true" requiredMessage="#{msg.msgErrorMail}">
+                            <f:validator validatorId="emailValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="mail" />
                         <br/>
                         <h:outputLabel class="label" value="* #{msg.login}" for="login"></h:outputLabel>
                         <h:inputText id="login" value="#{userMB.user.login}" 
                                      required="true" requiredMessage="#{msg.msgErrorLogin}">
+                            <f:validator validatorId="loginValidator"/>
                         </h:inputText>
                         <h:message class="errorMessage" for="login" />
                         <br/>

@@ -13,9 +13,8 @@ import javax.faces.validator.ValidatorException;
 public class EmailValidator implements Validator {
 
 
-	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\." +
-			"[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*" +
-			"(\\.[A-Za-z]{2,})$";
+	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*\n" +
+                                                    "@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})";
 
 	private Pattern pattern;
 	private Matcher matcher;
@@ -33,7 +32,7 @@ public class EmailValidator implements Validator {
 			
 			FacesMessage msg = 
 				new FacesMessage("E-mail validation failed.", 
-						"Invalid E-mail format.");
+						"Invalid E-mail format. Example : me@mail.com or you.at@mail.my.com");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 

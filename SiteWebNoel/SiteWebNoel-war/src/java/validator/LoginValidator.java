@@ -12,13 +12,13 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("loginValidator")
 public class LoginValidator implements Validator {
 
-    private static final String NAME_PATTERN = "^[a-z0-9_-]{3,15}$";
+    private static final String LOGIN_PATTERN = "^[a-z0-9_-]{3,15}$";
 
 	private Pattern pattern;
 	private Matcher matcher;
 	
 	public LoginValidator(){
-		  pattern = Pattern.compile(NAME_PATTERN);
+		  pattern = Pattern.compile(LOGIN_PATTERN);
 	}
 	
 	@Override

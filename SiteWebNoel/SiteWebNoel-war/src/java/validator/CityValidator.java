@@ -13,13 +13,12 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("cityValidator")
 public class CityValidator implements Validator {
 
-    private static final String NAME_PATTERN = "^[a-zA-Z]+([a-zA-Z -])*";
-
-	private Pattern pattern;
-	private Matcher matcher;
+    private static final String CITY_PATTERN = "^[a-zA-Z]+([a-zA-Z -])*";
+    private Pattern pattern;
+    private Matcher matcher;
 	
 	public CityValidator(){
-		  pattern = Pattern.compile(NAME_PATTERN);
+		  pattern = Pattern.compile(CITY_PATTERN);
 	}
 	
 	@Override
@@ -31,7 +30,7 @@ public class CityValidator implements Validator {
 			
 			FacesMessage msg = 
 				new FacesMessage("City validation failed.", 
-						"Invalid city's name format.");
+						"Invalid city's name format.  Don't enter space at first and digit at all");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 

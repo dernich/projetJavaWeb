@@ -13,7 +13,7 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("nameValidator")
 public class NameValidator implements Validator {
 
-    private static final String NAME_PATTERN = "^(a-zA-Z) + (a-zA-Z -)*";
+    private static final String NAME_PATTERN = "^[a-zA-Z]+[a-zA-Z -]*";
 
 	private Pattern pattern;
 	private Matcher matcher;
@@ -31,7 +31,7 @@ public class NameValidator implements Validator {
 			
 			FacesMessage msg = 
 				new FacesMessage("Name validation failed.", 
-						"Invalid Name format.");
+						"Invalid Name format. Don't enter space at first or digit at all");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 

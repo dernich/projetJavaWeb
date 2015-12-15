@@ -5,7 +5,11 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
 import javax.ejb.EJB;
+import javax.faces.event.ValueChangeEvent;
 import model.Article;
 import model.LigneCommande;
 import model.Utilisateur;
@@ -24,7 +28,6 @@ public class BasketMB implements Serializable {
     private Double promotion= 0.0;
     private Article art;
     private boolean dejaPresent;
-    private Integer ligneDejaPresent;
     
     public BasketMB() {
     }
@@ -45,32 +48,22 @@ public class BasketMB implements Serializable {
     
     public void addArticleList(Article a) {
         dejaPresent = false;
-        if(caddy.get(a.getId()).getArticle().equals(a)) {
-            dejaPresent = true;
+        for(Entry<Integer, LigneCommande> lg : caddy.entrySet()){
+            Integer cle = lg.getKey();
+            if(a.getId() == cle){
+                dejaPresent = true;
+            }
         }
-        if(a.getQuantiteStock() > 0) {
-            if(!dejaPresent) {
+        if(a.getQuantiteStock() > 0){
+             if(!dejaPresent){
                 caddy.put(a.getId(), new LigneCommande(a, 1));
                 subtotal += a.getPrix();
-            }
-            else {
-                caddy.get(a.getId()).setQuantiteCommande(caddy.get(a.getId()).getQuantiteCommande() + 1);
-            }
+             } else {
+                LigneCommande lg = caddy.get(a.getId());
+                lg.setQuantiteCommande(lg.getQuantiteCommande() +1);
+            } 
         }
-        /*for(int i = 0; i < ligneCommande.size(); i++){
-            if(a.getId() == ligneCommande.get(i).getArticle().getId()){
-                dejaPresent = true;
-                ligneDejaPresent = i;
-            }
-        }
-        
-        if(a.getQuantiteStock() > 0 && !dejaPresent) {
-            ligneCommande.add(new LigneCommande(a, 1));
-            subtotal += a.getPrix();
-        } else {
-           ligneCommande.get(ligneDejaPresent).setQuantiteCommande(ligneCommande.get(ligneDejaPresent).getQuantiteCommande() + 1);
-        }*/
-    }
+    } 
     
     public void delArticle(LigneCommande ligne) {
         caddy.remove(ligne.getArticle().getId());
@@ -86,12 +79,13 @@ public class BasketMB implements Serializable {
     }
     
     /*public ArrayList<LigneCommande> getListePanier()
-    {
+    {  
         return ligneCommande;
     }*/
     
     public HashMap<Integer, LigneCommande> getListePanier()
     {
+        
         return caddy;
     }
 

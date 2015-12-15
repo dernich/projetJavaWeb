@@ -12,13 +12,13 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("streetValidator")
 public class StreetValidator implements Validator {
 
-    private static final String NAME_PATTERN = "^(a-zA-Z) + (a-zA-Z -)*";
+    private static final String STREET_PATTERN = "^(a-zA-Z)+(a-zA-Z -)*";
 
 	private Pattern pattern;
 	private Matcher matcher;
 	
 	public StreetValidator(){
-		  pattern = Pattern.compile(NAME_PATTERN);
+		  pattern = Pattern.compile(STREET_PATTERN);
 	}
 	
 	@Override
@@ -30,7 +30,7 @@ public class StreetValidator implements Validator {
 			
 			FacesMessage msg = 
 				new FacesMessage("Street validation failed.", 
-						"Invalid street format.");
+						"Invalid street format. Don't enter space at first or digit at all");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 
