@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <body>
+        
+        <ui:composition template="./template.xhtml">
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <div>
+                    <div id="divCategory">
+                        <h1><h:outputText id="titleCategory" value="#{msg.category} #{param.categorie}"/></h1>
+                    </div>
+                    <div style="text-align: center;">
+                        <c:forEach items="#{categoriesMB.getListeArticle()}" var="article">
+                            <div  id="divArticle">
+                                <h:form>
+                                    <h:outputText class="nomArticle" value="#{article.nom}"/>
+                                    <br/>
+                                    <h:graphicImage id="article" url="#{article.urlImage}"/>
+                                    <br/><br/>
+                                    <h:outputText id="description" value="#{article.description}"/>
+                                    <br/>
+                                    <h:outputText class="prixArticle" value="#{article.prix} €"/>
+                                    <br/><br/>
+                                    <c:set var="stock" scope="session" value="#{article.quantiteStock}"/>
+                                    <c:choose>
+                                        <c:when test="${stock > 5}">
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: green; background-color: green;"/>
+                                        </c:when>
+                                        <c:when test="${stock le 5 and stock > 0}">
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: orange; background-color: orange;"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <h:outputText value="Quantite en stock : #{article.quantiteStock}" style="color: red; background-color: red;"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <br/><br/>
+                                    <h:commandButton id="boutonPanier" value="#{msg.addBasket}" action="#{basket.addArticleList(article)}"/>
+                                </h:form>
+                            </div>
+                        </c:forEach>  
+                    </div>
+                </div>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
