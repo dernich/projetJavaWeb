@@ -32,12 +32,25 @@ public class BasketMB implements Serializable {
     public BasketMB() {
     }
     
-    /*public void quantityChanged(ValueChangeEvent e) {
-        int quantiteChange = Integer.parseInt(e.getNewValue().toString());
-        ligneCommande.get(i).setQuantite(quantiteChange);
+   public void addQuantity(Integer id){
+        LigneCommande ligne = caddy.get(id);
+        int quantity = ligne.getQuantiteCommande();
+        quantity ++;
+        total += ligne.getArticle().getPrix();
+        calculPromotion();
+        ligne.setQuantiteCommande(quantity);
         
-    }*/
-
+    }
+   
+    public void decQuantity(Integer id){
+        LigneCommande ligne = caddy.get(id);
+        int quantity = ligne.getQuantiteCommande();
+        quantity--;
+        total += ligne.getArticle().getPrix();
+        calculPromotion();
+        ligne.setQuantiteCommande(quantity);
+    }
+   
     public Article getArt() {
         return art;
     }
@@ -56,11 +69,11 @@ public class BasketMB implements Serializable {
         }
         if(a.getQuantiteStock() > 0){
              if(!dejaPresent){
-                caddy.put(a.getId(), new LigneCommande(a, 1));
+                caddy.put(a.getId(), new LigneCommande(a, a.getQuantiteCommand()));
                 subtotal += a.getPrix();
              } else {
                 LigneCommande lg = caddy.get(a.getId());
-                lg.setQuantiteCommande(lg.getQuantiteCommande() +1);
+                lg.setQuantiteCommande(lg.getQuantiteCommande() + a.getQuantiteCommand());
             } 
         }
     } 

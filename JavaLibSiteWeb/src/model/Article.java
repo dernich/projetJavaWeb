@@ -8,7 +8,7 @@ public class Article {
     private String urlImage;
     private Double prix;
     private int quantiteStock;
-    private int quantiteCommand = 0;
+    private int quantiteCommand = 1;
 
     public Article(int id, String nom, String description, String urlImage, Double prix, int quantiteStock) {
         this.id = id;
@@ -65,7 +65,11 @@ public class Article {
     }
 
     public void setQuantiteStock(int quantiteStock) {
+        
         this.quantiteStock = quantiteStock;
+        if(this.quantiteStock < 1){
+            this.quantiteStock = 1;
+        }
     }
 
     public int getQuantiteCommand() {
@@ -73,7 +77,10 @@ public class Article {
     }
 
     public void setQuantiteCommand(int quantiteCommand) {
-        this.quantiteCommand = quantiteCommand;
+        this.quantiteCommand += quantiteCommand;
+        if(this.quantiteCommand < 1){
+            this.quantiteCommand = 1;
+        }
     }
     
 }

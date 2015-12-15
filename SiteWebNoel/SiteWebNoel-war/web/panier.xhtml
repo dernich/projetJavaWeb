@@ -19,9 +19,11 @@
                                 <h:graphicImage url="#{caddy.value.article.urlImage}" height="70px" width="70px"/>
                                 <h:outputText value="#{caddy.value.article.nom}"/>
                                 <h:outputText value="#{caddy.value.article.prix}" converter="priceConverter"/>
-                                <p:spinner min="0" size="2" value="#{caddy.value.quantiteCommande}" 
-                                   valueChangeListener="#{caddy.value.quantiteCommande}"/>
                                 <h:form>
+                                <h:commandButton value="-" action="#{basketMB.decQuantity(caddy.value.article.id)}"/>
+                                <h:outputText value="#{caddy.value.quantiteCommande}"/>
+                                <h:commandButton value="+" action="#{basketMB.addQuantity(caddy.value.article.id)}"/>
+                                
                                     <h:commandButton actionListener="#{basketMB.delArticle(line)}" image="./images/poubelle.png" style="float:right; margin: auto;"/>
                                 </h:form>
                                 <h:outputText value="#{caddy.value.totalArticle}" converter="priceConverter"/>

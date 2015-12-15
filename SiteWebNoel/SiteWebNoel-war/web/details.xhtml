@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <h:outputStylesheet name="./css/cssLayout.css"/>
@@ -26,8 +27,13 @@
                         <h:outputText value="#{msg.descriptionArticle}" style="font-weight: bold;"/>
                         <h:outputText value="#{articleManager.articleToManage.description}"/>
                         <br/><br/>
+                        <h:outputText value="#{msg.quantityOrder}" style="font-weight: bold;"/>
                         <h:form>
-                            <h:commandButton id="boutonPanier" value="#{msg.addBasket}" actionListener="#{basketMB.addArticleList(articleManager.articleToManage)}"/>
+                        <h:commandButton value="-" action="#{articleManager.articleToManage.setQuantiteCommand(-1)}"/>
+                        <h:outputText value="#{articleManager.articleToManage.quantiteCommand}"/>
+                        <h:commandButton value="+" action="#{articleManager.articleToManage.setQuantiteCommand(1)}"/>
+                        
+                        <h:commandButton id="boutonPanier" value="#{msg.addBasket}" actionListener="#{basketMB.addArticleList(articleManager.articleToManage)}"/>
                         </h:form> 
                     </div>
                 </div>
