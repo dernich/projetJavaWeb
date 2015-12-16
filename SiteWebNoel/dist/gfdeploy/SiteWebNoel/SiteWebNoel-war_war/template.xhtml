@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <f:view locale="#{internationalizationMB.locale}"/>
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Christmas E-Commerce</title>
+    </h:head>
+
+    <h:body>
+        <f:loadBundle basename="languages.lang" var="msg"/>
+        <div id="top">
+            <ui:insert name="top"></ui:insert>
+            
+            <h:form id="langues">
+                <h:commandButton image="./images/fr.png" action="#{internationalizationMB.setToFrench()}" style="margin-right: 5px;"/>
+                <h:commandButton image="./images/en.png" action="#{internationalizationMB.setToEnglish()}"/>
+            </h:form>
+            
+            <h:graphicImage id="imageHeader" url="./images/rennes.gif"/>
+            <h:outputText id="title" value="Christmas Things"/>
+            
+            <c:set var="user" scope="session" value="#{userConnection.user}"/>
+            <div id="connection">
+                <h:button id="buttonConnectionTop" value="#{msg.connection}" outcome="faces/connection.xhtml"></h:button>
+            </div>
+            
+            <div id="panier">
+                <h:link outcome="faces/panier.xhtml">
+                    <h:outputText id="textPanier" value="#{msg.basket}"></h:outputText>
+                    <h:graphicImage id="imagePanier" url="./images/panier.png" width="30px" height="30px"></h:graphicImage>
+                    <h:outputText value="#{basket.countList()}" style="float:right; font-size: 1.3em; margin-top: 10px; margin-left: 10px;"/>
+                </h:link>
+            </div>
+        </div>
+        
+        <div id="discount">
+            <h:outputText value="#{msg.discountDescription}"/>
+        </div>
+        
+        <div>
+            <div id="left">
+                <ui:insert name="left"></ui:insert>
+                <h2><h:outputText value="#{msg.menu}"></h:outputText></h2>
+                <ul>
+                    <li><h:link value="#{msg.home}" outcome="faces/index.xhtml"/></li>
+                    <li><h:outputText value="#{msg.category}"/></li>
+                    <ul>
+                        <li><h:link value="#{msg.tree}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tree}"/></h:link></li>
+                        <li><h:link value="#{msg.balls}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.balls}"/></h:link></li>
+                        <li><h:link value="#{msg.tinsel}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.tinsel}"/></h:link></li>
+                        <li><h:link value="#{msg.light}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.light}"/></h:link></li>
+                        <li><h:link value="#{msg.star}" outcome="faces/categories.xhtml"><f:param name="categorie" value ="#{msg.star}"/></h:link></li>
+                    </ul>
+                    <li><h:link value="#{msg.contact}" outcome="faces/contact.xhtml"/></li>
+                </ul>
+            </div>
+            
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+        
+        <div id="bottom">
+            <ui:insert name="bottom">&copy; Copyright : Degraux - Dernivoix</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
