@@ -89,8 +89,7 @@ public class BasketMB implements Serializable {
         calculPromotion();
     }
     
-    public HashMap<Integer, LigneCommande> getListePanier()
-    {
+    public HashMap<Integer, LigneCommande> getListePanier() {
         return caddy;
     }
 
@@ -147,9 +146,17 @@ public class BasketMB implements Serializable {
         this.promotion = promotion;
     }
     
-    public void createCommande(Utilisateur user){
+    public String createCommande(Utilisateur user){
         if(!caddy.isEmpty()) {
             commandeEJB.createCommande(caddy, user, total);
+              caddy.clear();
+              subtotal = 0.0;
+              total = 0.0;
+              calculPromotion();
+              return "commandeValidation.xhtml";
+        }
+        else {
+            return "confirmationCommande.xhtml";
         }
     }
 }
