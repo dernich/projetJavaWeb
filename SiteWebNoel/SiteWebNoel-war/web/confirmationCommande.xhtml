@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <body>
+
+        <ui:composition template="./template.xhtml">
+            <f:loadBundle basename="languages.lang" var="msg"/>
+            <ui:define name="content">
+                <h1><h:outputText value="#{msg.confirmation}"/></h1>
+                
+                <fieldset>
+                    <legend><h:outputText value="#{msg.shippingAddress}"/><br/></legend>
+                    <div id="userData">
+                        <h:outputText value="#{userMB.user.prenom} #{userMB.user.nom}"/><br/>
+                        <h:outputText value="#{userMB.user.rue}, #{userMB.user.numeromaison}"/><br/>
+                        <h:outputText value="#{userMB.user.codepostal} #{userMB.user.localite}"/><br/>
+                        <h:outputText value="#{userMB.getUserPays(internationalizationMB.locale)}"/><br/>
+                    </div>
+                </fieldset>
+                
+                <table id="basket">
+                <tr><th></th><th>#{msg.nameArticle}</th> <th>#{msg.unityPrice}</th><th>#{msg.quantityOrder}</th><th>#{msg.totalPrice}</th></tr>
+                <c:forEach items="#{basketMB.listePanier}" var="caddy">
+                    <tr>
+                        <td><h:graphicImage class="imageArt" url="#{caddy.value.article.urlImage}" height="70px" width="70px"/></td>
+                        <td><h:outputText value="#{caddy.value.article.nom}"/></td>
+                        <td><h:outputText value="#{caddy.value.article.prix}" converter="priceConverter"/></td>
+                        <td><h:outputText value="#{caddy.value.quantiteCommande}"/></td>
+                        <td><h:outputText value="#{caddy.value.totalArticle}" converter="priceConverter" style="float:right;"/></td>
+                    </tr>
+                </c:forEach>
+                </table>
+                <br/>
+                <div id="totalCommande">
+                    <h:outputText value="#{msg.soustotalOrder} #{basketMB.subtotal} €"/>
+                    <br/>
+                    <h:outputText value="#{msg.discount} : #{basketMB.promotion} %"/>
+                    <br/>
+                    <h:outputText value="#{msg.totalOrder} #{basketMB.total} €"/>
+                    <br/><br/>
+                    <h:form>
+                        <h:button outcome="#{basketMB.createCommande(userMB.user)}" value="#{msg.order}" style="background-color:yellow;"/>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
